@@ -9,6 +9,7 @@ header{
 .Nav{
     width:100%;
     display:inline-flex;
+    padding: .5em;
 }
 
 h1{

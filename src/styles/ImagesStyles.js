@@ -16,7 +16,7 @@ export const ImageWrapper= styled.div`
     height:30vw;
 
     @media only screen and (max-width:767px){
-        height: 50vw;
+        height: 60vw;
     }
 `;
 

@@ -7,7 +7,7 @@ export default function Nav() {
     return (
         <header>
             <div className='Nav'>
-                <h1>PHOTO GALLERY</h1>
+                <h1>PG</h1>
                 <Search />
             </div>
             <Categories />
