@@ -3,17 +3,11 @@ import {GridBox} from '../styles/GridBoxStyles'
 import LazyImage from './LazyImage'
 
 
+
+
 export default function Grid() {
-    return (
+    return(
         <GridBox>
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
-            <LazyImage />
             <LazyImage />
         </GridBox>
     )

@@ -29,9 +29,10 @@ export const Placeholder= styled.div`
     animation:${loadingAnimation} 5s cubic-bezier(0.4, 0, 1, 1) infinite;
 `;
 
-export const StyledImage = styled.img`
-    position: absolute;
-    top: 0;
+export const StyledImage = styled.img.attrs(props => ({
+    src: props.src,
+    alt: props.alt,
+}))`
     width: 100%;
     height: 100%;
     object-fit: cover;

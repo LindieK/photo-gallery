@@ -1,17 +1,23 @@
-import React from 'react'
+import React, {lazy, Suspense} from 'react'
 import {ImageWrapper, Placeholder} from '../styles/ImagesStyles'
-/*import LazyLoad from 'react-lazyload'*/
+import {library}from '../ImageLibrary'
 
+
+const Image = lazy(() => import('./Image'));
 
 
 const LazyImage = () => {
     return (
-        <ImageWrapper>
-            <Placeholder />
-            {/*<LazyLoad>
-                <StyledImage src={src} alt={alt} />
-            </LazyLoad>*/}
-        </ImageWrapper>
+        <>
+            {library.map(image => (
+                <ImageWrapper key={image.id}>
+                    <Suspense key={image.id} fallback={<Placeholder />}>
+                        <Image key={image.id} image={`https://picsum.photos/1000/1000?random=${image.id}`}/>
+                    </Suspense>
+                </ImageWrapper>
+            ))}
+        </>    
+        
     )
 }
 
