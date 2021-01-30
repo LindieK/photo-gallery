@@ -33,6 +33,9 @@ export const StyledImage = styled.img.attrs(props => ({
     src: props.src,
     alt: props.alt,
 }))`
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
