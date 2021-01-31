@@ -13,7 +13,7 @@ const LazyImage = (props) => {
         <ImageWrapper key={props.id}>
             <Placeholder ref={placeholderRef}/>
             <LazyLoad>
-                <StyledImage key={props.id} src={props.image} onLoad={removePlaceholder} onError={removePlaceholder}/>
+                <StyledImage key={props.id} src={props.image} alt={props.alt} onLoad={removePlaceholder} onError={removePlaceholder}/>
             </LazyLoad>
         </ImageWrapper>
     ) 
