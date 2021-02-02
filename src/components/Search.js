@@ -9,13 +9,13 @@ class Search extends Component {
         super(props)
     
         this.state = {
-            searchTerm: '' 
+            query: '' 
         }
     }
     
     handleSearchTermChange = (event) => {
         this.setState({
-            searchTerm: event.target.value
+            query: event.target.value
         })
     }
 
