@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Search from './components/Search'
 import Categories from './components/Categories'
 import Grid from './components/Grid'
