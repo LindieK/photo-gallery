@@ -14,6 +14,7 @@ export const ImageWrapper= styled.div`
     position: relative;    
     width: 100%;
     height:30vw;
+    border-radius: 10px;
 
     @media only screen and (max-width:767px){
         height: 60vw;
