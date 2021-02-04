@@ -1,9 +1,15 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import Grid from '../components/Grid'
+import axios from 'axios'
 
 
 describe('Grid Component', () => {
+    let spyDidMount = jest.spyOn(Grid.prototype,"componentDidMount");
+
+    afterEach(() => {
+        spyDidMount.mockClear();
+    })
 
     jest.mock('axios', () => {
         const returnedImages = [{
@@ -24,11 +30,11 @@ describe('Grid Component', () => {
         };
     });
 
-    const axios = require('axios');
 
     it('returns images from server on componentDidMount', () => {
-        const grid = shallow(<Grid />);
-        grid.instance().componentDidMount();
-        expect(axios.get).toHaveBeenCalled();
+        expect(spyDidMount).toHaveBeenCalledTimes(0);
+
+        shallow(<Grid />);
+        expect(spyDidMount).toHaveBeenCalledTimes(1);
     })
 })
