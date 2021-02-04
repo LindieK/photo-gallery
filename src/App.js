@@ -1,11 +1,18 @@
 import './App.css';
+import Search from './components/Search'
+import Categories from './components/Categories'
 import Grid from './components/Grid'
-import Nav from './components/Nav'
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <header>
+          <div className='Nav'>
+              <h1>PG</h1>
+              <Search />
+          </div>
+          <Categories />
+      </header>
       <Grid />
     </div>
   );
