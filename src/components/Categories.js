@@ -3,15 +3,11 @@ import '../styles/categories.css'
 
 class Categories extends Component {
     render() {
+        const Tabs =["For You", "Portraits", "Landscapes", "Architecture", "Profile", "Nature"];
         return (
             <div>
                 <ul>
-                    <li className="active">For You</li>
-                    <li>Potraits</li>
-                    <li>Landscapes</li>
-                    <li>Architecture</li>
-                    <li>People</li>
-                    <li>Nature</li>
+                    {Tabs.map(tab => <li>{tab}</li>)}
                 </ul>
             </div>
         )
