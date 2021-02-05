@@ -6,12 +6,12 @@ class Categories extends Component {
         return (
             <div>
                 <ul>
-                    <li><a>For You</a></li>
-                    <li><a>Potraits</a></li>
-                    <li><a>Landscapes</a></li>
-                    <li><a>Architecture</a></li>
-                    <li><a>People</a></li>
-                    <li><a>Nature</a></li>
+                    <li className="active">For You</li>
+                    <li>Potraits</li>
+                    <li>Landscapes</li>
+                    <li>Architecture</li>
+                    <li>People</li>
+                    <li>Nature</li>
                 </ul>
             </div>
         )

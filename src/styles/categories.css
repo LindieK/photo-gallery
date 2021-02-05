@@ -9,13 +9,11 @@ ul{
 
 li{
     color: #6f788a;
-    padding: 0 1em;
-}
-
-a{
+    padding: 1em;
     cursor: pointer;
 }
-a:hover{
+
+li:hover{
     color: black;
 }
 .active{
