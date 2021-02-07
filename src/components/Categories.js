@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/categories.css'
+import Tab from './Tab'
 
 class Categories extends Component {
 
@@ -7,22 +8,36 @@ class Categories extends Component {
         super(props)
     
         this.state = {
-             activeTab: ""
+             selectedTab: 1
         }
+
     }
-    
-    onTabClick = (tab)=> {
+
+    isTabActive(id){
+        return this.state.selectedTab === id;
+    }
+
+
+    setActiveTab(selectedTabId){
         this.setState({
-            activeTab: tab
+            selectedTab: selectedTabId
         })
     }
 
-    render() {
-        const Tabs =["For You", "Portraits", "Landscapes", "Architecture", "Profile", "Nature"];
+    render() { 
+        const Tabs =[
+            {id: 1, title: "For You"}, 
+            {id: 2, title: "Portraits"}, 
+            {id: 3, title: "Landscapes"}, 
+            {id: 4, title: "Architecture"}, 
+            {id: 5, title: "Profile"}, 
+            {id: 6, title: "Nature"}
+        ];
+
         return (
             <div>
                 <ul>
-                    {Tabs.map(tab => <li key={tab} onClick={this.onTabClick}>{tab}</li>)}
+                    {Tabs.map((tab) => <Tab key={tab.id} content={tab.title} isActive={this.isTabActive(tab.id)} onTabClick={() => this.setActiveTab(tab.id)}/> )}
                 </ul>
             </div>
         )
