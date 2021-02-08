@@ -9,10 +9,10 @@ class Categories extends Component {
         const {setActiveTab, isTabActive} = this.props;
         const Tabs =[
             {id: 1, title: "For You"}, 
-            {id: 2, title: "Portraits"}, 
-            {id: 3, title: "Landscapes"}, 
+            {id: 2, title: "People"}, 
+            {id: 3, title: "Technology"}, 
             {id: 4, title: "Architecture"}, 
-            {id: 5, title: "Profile"}, 
+            {id: 5, title: "Travel"}, 
             {id: 6, title: "Nature"}
         ];
 
