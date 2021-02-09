@@ -8,7 +8,7 @@ let url;
 
 export const getSearchResults =  (searchValue) => {
     url = searchValue ? `https://api.unsplash.com/photos/random/?client_id=${clientID}&count=${numberOfPhotos}&query=${searchValue}`: `https://api.unsplash.com/photos/random/?client_id=${clientID}&count=${numberOfPhotos}` ;
-    return axios.get(url).then(response => response.json())
+    return axios.get(url).then(response => response);
 };
 
 export const getInitialPics = async () => {

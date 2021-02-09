@@ -23,7 +23,9 @@ li:hover{
 }
 
 @media only screen and (max-width: 767px){
-
+    li{
+        padding: 1em 1.25em;
+    }
 }
 @media only screen and (min-width: 600px) {
     ul{
