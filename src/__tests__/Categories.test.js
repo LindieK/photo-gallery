@@ -33,9 +33,9 @@ describe('Categories Component', () => {
     })
 
     it('should pass the right parameters to Tab prop methods', () => {
-        console.log(categories.find(Tab).first().props())
         expect(categories.find(Tab).first().props().content).toEqual("For You");
         expect(categories.find(Tab).first().props().onTabClick).toEqual(expect.any(Function));
+        expect(categories.find(Tab).first().props()).toHaveProperty('isActive');
     })
    
 })
