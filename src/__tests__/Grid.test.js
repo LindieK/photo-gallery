@@ -23,11 +23,7 @@ describe('Grid Component', () => {
             }
         }];
 
-        return {
-            get: jest.fn(() =>{
-                Promise.resolve(returnedImages);
-            })
-        };
+        axios.get.mockResolvedValue(returnedImages);
     });
 
 
