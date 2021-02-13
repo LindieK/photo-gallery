@@ -3,24 +3,13 @@ import '../styles/search.css'
 
 
 class Search extends Component {
-    constructor(props) {
-        super(props)
     
-        this.state = {
-            query: '' 
-        }
-    }
-    
-    handleSearchTermChange = (event) => {
-        this.setState({
-            query: event.target.value
-        })
-    }
 
     render() {
+        const {searchTerm, handleSearchTermChange, handleFormSubmit} = this.props;
         return (
-            <form>
-                <input type='text' placeholder='Search' value={this.state.searchTerm} onChange={this.handleSearchTermChange}/>
+            <form onSubmit={handleFormSubmit}>
+                <input type='text' placeholder='Search' value={searchTerm} onChange={handleSearchTermChange} />
             </form>
         )
     }
