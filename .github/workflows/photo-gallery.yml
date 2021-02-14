@@ -18,6 +18,11 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 
+      - name: Install rsync 📚
+        run: |
+          apt-get update && apt-get install -y rsync
+
+      - name: Deploy
       - uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
