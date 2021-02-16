@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 
 
-const loadingAnimation= keyframes`
+export const loadingAnimation= keyframes`
     0%, 100%{
         background-color: #fff;
     }
