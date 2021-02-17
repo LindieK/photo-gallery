@@ -3,6 +3,7 @@ import './styles/App.css';
 import Search from './components/Search'
 import Categories from './components/Categories'
 import Grid from './components/Grid'
+import ImageModal from './components/ImageModal'
 import {getInitialPics, getSearchResults, getCategoryPics} from './Api'
 
 
@@ -15,13 +16,16 @@ class App extends Component {
     this.state = {
       selectedTab: 1,
       photos: [],
-      query: ''
+      query: '',
+      showModal: false,
+      modalPhoto:{}
     }
 
   }
 
   componentDidMount(){
     getInitialPics().then(response => {
+      console.log(response);
         this.setState({
             photos: response.data
         })
@@ -37,6 +41,7 @@ class App extends Component {
   setActiveTab = (selectedTabId, selectedTabName) => {
       selectedTabId === 1 ?
       getInitialPics().then(response => {
+        console.log(response);
           this.setState({
               photos: response.data
           })
@@ -71,9 +76,23 @@ class App extends Component {
     })
   }
 
+  handleShowImageInfo = (photo) => {
+    this.setState({
+      showModal: true,
+      modalPhoto: photo
+    })
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showModal: false
+    })
+  }
+
   render() {
     const photos = this.state.photos;
     const query = this.state.query;
+    const modalPhoto = this.state.modalPhoto;
 
     return (
       <div className="App">
@@ -84,7 +103,8 @@ class App extends Component {
           </div>
           <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
         </header>
-        <Grid photos= {photos}/>
+        <Grid photos={photos} displayModal={this.handleShowImageInfo}/>
+        {this.state.showModal ? <ImageModal image={modalPhoto} onClose={this.handleCloseModal}/> : null}
       </div>
     )
   }
