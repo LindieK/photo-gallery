@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 
 
-const loadingAnimation= keyframes`
+export const loadingAnimation= keyframes`
     0%, 100%{
         background-color: #fff;
     }
@@ -41,4 +41,5 @@ export const StyledImage = styled.img.attrs(props => ({
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+    cursor: pointer;
 `;
