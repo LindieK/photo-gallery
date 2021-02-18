@@ -1,46 +1,19 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ImageInfoWrapper, ImagePlaceholder} from '../styles/ModalStyles'
-import LazyLoad from 'react-lazyload'
+import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper} from '../styles/ModalStyles'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPlus, faArrowDown, faTimes} from '@fortawesome/free-solid-svg-icons'
+import {faPlus, faArrowDown, faInfoCircle, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import '../styles/ImageModal.css';
 
 const ImageModal = (props) => {
-    let camera = `${props.image.exif.make} ${props.image.exif.model}`
+    let camera = `${props.image.exif.make} ${props.image.exif.model}`;
     let resolution = `${props.image.width} x ${props.image.height}`;
+    const isMobile = window.innerWidth < 480;
 
-    const placeholderRef = useRef(null);
-
-    const removePlaceholder= () => {
-        placeholderRef.current.remove();
-    }
 
     return ReactDOM.createPortal(
         <ModalOverlay onClick={props.onClose}>
-            <ModalWrapper>
-                <ModalImageWrapper>
-                    <ImagePlaceholder ref={placeholderRef}/>
-                    <LazyLoad>
-                        <ModalImage onLoad={removePlaceholder} src={props.image.urls.regular} alt={props.image.alt_description}/>
-                    </LazyLoad>
-                </ModalImageWrapper>
-
-                <ImageInfoWrapper>
-                    <ModalActions>
-                        <div className="imageActions">
-                            <button>
-                                <FontAwesomeIcon icon={faPlus}/>
-                                Add Favourites
-                            </button>
-                            <button>
-                                <FontAwesomeIcon icon={faArrowDown}/>
-                                Download
-                            </button>
-                        </div>
-                        <button onClick={props.onClose}>
-                            <FontAwesomeIcon icon={faTimes}/>
-                        </button>
-                    </ModalActions>
+            {/*
                     <div className="imageInfo">
                         <p>Image Name: {props.image.alt_description}</p>
                         <p>Upload Date: {props.image.updated_at}</p>
@@ -49,7 +22,36 @@ const ImageModal = (props) => {
                         <p>Downloads: {props.image.downloads}</p>
                         <p>Author: {props.image.user.name}</p>
                     </div>
-                </ImageInfoWrapper>
+                */}
+            <ModalWrapper>
+                <ModalActions>
+                    <div className="authorInfo">
+
+                    </div>
+
+                    <div className="imageActions">
+                        <button className="btn">
+                            <FontAwesomeIcon icon={faPlus}/>
+                        </button>
+                        <button className="btn" value="">
+                        Download
+                        </button>
+                    </div>
+                </ModalActions>
+                
+                <ModalImageWrapper>
+                    <ModalImage src={props.image.urls.regular} alt={props.image.alt_description}/>
+                </ModalImageWrapper>
+                
+                <ExtraInfoWrapper>
+                    <div className="description">
+                        <p>{props.image.alt_description}</p>
+                    </div>
+                    <button className="btn">
+                        <FontAwesomeIcon icon={faInfoCircle}/>
+                        <span>Info</span>
+                    </button>             
+                </ExtraInfoWrapper>
             </ModalWrapper>
         </ModalOverlay>
         ,document.getElementById('modal-root')
