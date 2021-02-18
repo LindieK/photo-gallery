@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {loadingAnimation} from './ImagesStyles'
 
 export const ModalOverlay = styled.div`
     position: fixed;
@@ -7,77 +6,68 @@ export const ModalOverlay = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index:10;
+    backdrop-filter: blur(5px);
 `;
 
 export const ModalWrapper = styled.div`
     position: relative;
-    min-width: 60vw;
-    min-height: 40vw;
-    background-color: rgb(225, 225, 225);
-    border-radius: 20px;
+    max-width: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
     display: flex;
+    flex-direction: column;
 
     @media only screen and (max-width:767px){
-        flex-direction: column;
+        max-width: 90%;
+    }
+    @media only screen and (max-width:1024px){
     }
 `;
 
 export const ModalImageWrapper = styled.div`
     position: relative;
-    width:50vw;
-    min-height: 40vw;
-    display: flex;
-    flex-direction: row;
-    border-radius: 20px 0 0 20px;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 80vh;
 
     @media only screen and (max-width:767px){
-        flex-direction: column;
-}
+        height: 60vh;
+    }
+    @media only screen and (max-width:1024px){
+    }
 `;
 
-export const ImagePlaceholder = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 20px 0 0 20px;
-    animation:${loadingAnimation} 5s cubic-bezier(0.4, 0, 1, 1) infinite;
-`;
 
 export const ModalImage = styled.img.attrs(props => ({
     src: props.src,
     alt: props.alt,
     }))`
-    position: absolute;
-    top: 0;
-    left: 0;
+    
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 20px 0 0 20px;
+    object-fit: contain;
 `;
 
-export const ImageInfoWrapper = styled.div`
-    width: 50%;
-    padding: 1.25em;
+export const ExtraInfoWrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    border-radius: 0 20px 20px 0;
+    justify-content: space-between;   
+    padding: 1em;
 
     @media only screen and (max-width:767px){
-        width: 100%;
+        
     }
 `;
 
 export const ModalActions = styled.div`
     display: flex;
     justify-content: space-between;
+    padding: 1em;
+
+    @media only screen and (max-width:767px){
+        
 `;
