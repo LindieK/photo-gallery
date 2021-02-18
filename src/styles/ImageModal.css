@@ -1,0 +1,33 @@
+.fit{
+    max-width: 100%;
+    max-height: 100%;
+}
+.btn{
+    background-color: transparent;
+    font-size: 1em;
+    color: #767676;
+    padding: .5em .6em;
+    margin: 0 .25em;
+    border-radius: 5px;
+    border: 1.5px solid #d1d1d1;
+    cursor: pointer;
+}
+.btn > span {
+    padding-left: .5em;
+}
+.btn:hover{
+    color: #000000;
+    border: 2px solid #000000;
+}
+.description{
+    align-self: center;
+}
+
+@media only screen and (max-width:767px){
+    .btn, .description{
+        font-size: .8em;
+    }
+    .btn > span{
+        display: none;
+    }
+}
