@@ -11,7 +11,7 @@ class Grid extends Component {
             <GridBox>
                 {photos.length ? 
                 photos.map(photo => 
-                    <LazyImage key={photo.id} image={photo.urls.regular} alt={photo.alt_description} onImageClick={() => displayModal(photo)}/>
+                    <LazyImage key={photo.id} image={photo.urls} alt={photo.alt_description} onImageClick={() => displayModal(photo)}/>
                     ) : 
                 null
                 }
