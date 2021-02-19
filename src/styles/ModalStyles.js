@@ -45,7 +45,7 @@ export const ModalImageWrapper = styled.div`
 
 export const ModalImage = styled.img.attrs(props => ({
     src: props.src,
-    alt: props.alt,
+    alt: props.alt
     }))`
     
     width: 100%;
@@ -56,7 +56,7 @@ export const ModalImage = styled.img.attrs(props => ({
 export const ExtraInfoWrapper = styled.div`
     display: flex;
     justify-content: space-between;   
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
 
     @media only screen and (max-width:767px){
         
@@ -66,8 +66,19 @@ export const ExtraInfoWrapper = styled.div`
 export const ModalActions = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
 
     @media only screen and (max-width:767px){
         
+    }
+`;
+
+export const Avatar = styled.img.attrs(props => ({
+    src: props.src,
+    alt:props.alt
+    }))`
+        width: 50px;
+        height: 50px;
+        border-radius:50%;
+        vertical-align: middle;
 `;
