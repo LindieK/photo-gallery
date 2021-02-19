@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper, Avatar} from '../styles/ModalStyles'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPlus, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import {faPlus, faInfoCircle, faTimes} from '@fortawesome/free-solid-svg-icons'
 import '../styles/ImageModal.css';
 
 const ImageModal = (props) => {
 
     return ReactDOM.createPortal(
-        <ModalOverlay onClick={props.onClose}>
+        <ModalOverlay>
+            <FontAwesomeIcon icon={faTimes} onClick={props.onClose}/>
             <ModalWrapper>
                 <ModalActions>
                     <div className="authorInfo">
@@ -37,7 +38,7 @@ const ImageModal = (props) => {
                     <div className="description">
                         <span>{props.image.alt_description}</span>
                     </div>
-                    <button className="btn">
+                    <button className="btn" onClick={() => props.displayImageInfo(props.image)}>
                         <FontAwesomeIcon icon={faInfoCircle}/>
                         <span>Info</span>
                     </button>             
