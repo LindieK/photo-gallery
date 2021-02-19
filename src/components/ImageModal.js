@@ -30,7 +30,7 @@ const ImageModal = (props) => {
                 </ModalActions>
                 
                 <ModalImageWrapper>
-                    <ModalImage src={props.image.urls.regular} alt={props.image.alt_description}/>
+                    <ModalImage src={props.image.urls} alt={props.image.alt_description}/>
                 </ModalImageWrapper>
                 
                 <ExtraInfoWrapper>
