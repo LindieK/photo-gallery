@@ -83,3 +83,28 @@ export const Avatar = styled.img.attrs(props => ({
         border-radius:50%;
         vertical-align: middle;
 `;
+
+export const InfoModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:20;
+    backdrop-filter: blur(5px);
+`;
+
+export const InfoWrapper = styled.div`
+    position: relative;
+    width 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    @media only screen and (max-width:767px){
+        width: 90%;
+    }
+`;
