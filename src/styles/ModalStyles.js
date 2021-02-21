@@ -44,8 +44,9 @@ export const ModalImageWrapper = styled.div`
 
 
 export const ModalImage = styled.img.attrs(props => ({
-    src: props.src,
-    alt: props.alt,
+    src: props.src.regular,
+    srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
+    alt: props.alt
     }))`
     
     width: 100%;
@@ -56,7 +57,7 @@ export const ModalImage = styled.img.attrs(props => ({
 export const ExtraInfoWrapper = styled.div`
     display: flex;
     justify-content: space-between;   
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
 
     @media only screen and (max-width:767px){
         
@@ -66,8 +67,44 @@ export const ExtraInfoWrapper = styled.div`
 export const ModalActions = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
 
     @media only screen and (max-width:767px){
         
+    }
+`;
+
+export const Avatar = styled.img.attrs(props => ({
+    src: props.src,
+    alt:props.alt
+    }))`
+        width: 50px;
+        height: 50px;
+        border-radius:50%;
+        vertical-align: middle;
+`;
+
+export const InfoModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:20;
+    backdrop-filter: blur(5px);
+`;
+
+export const InfoWrapper = styled.div`
+    position: relative;
+    width 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    @media only screen and (max-width:767px){
+        width: 90%;
+    }
 `;

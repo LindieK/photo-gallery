@@ -1,32 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper} from '../styles/ModalStyles'
+import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper, Avatar} from '../styles/ModalStyles'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPlus, faArrowDown, faInfoCircle, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import {faPlus, faInfoCircle, faTimes} from '@fortawesome/free-solid-svg-icons'
 import '../styles/ImageModal.css';
 
 const ImageModal = (props) => {
-    let camera = `${props.image.exif.make} ${props.image.exif.model}`;
-    let resolution = `${props.image.width} x ${props.image.height}`;
-    const isMobile = window.innerWidth < 480;
-
 
     return ReactDOM.createPortal(
-        <ModalOverlay onClick={props.onClose}>
-            {/*
-                    <div className="imageInfo">
-                        <p>Image Name: {props.image.alt_description}</p>
-                        <p>Upload Date: {props.image.updated_at}</p>
-                        <p>Image Resolution: {resolution}</p>
-                        <p>Camera: {camera}</p>
-                        <p>Downloads: {props.image.downloads}</p>
-                        <p>Author: {props.image.user.name}</p>
-                    </div>
-                */}
+        <ModalOverlay>
+            <FontAwesomeIcon icon={faTimes} onClick={props.onClose}/>
             <ModalWrapper>
                 <ModalActions>
                     <div className="authorInfo">
-
+                        <Avatar src={props.image.user.profile_image.small} alt="Author sssssProfile Photo"/>
+                        <div className="authorName">
+                            <span>{props.image.user.name}</span>
+                            <span>{props.image.user.instagram_username ? `@${props.image.user.instagram_username}` : ''}</span>
+                        </div>
                     </div>
 
                     <div className="imageActions">
@@ -40,14 +31,14 @@ const ImageModal = (props) => {
                 </ModalActions>
                 
                 <ModalImageWrapper>
-                    <ModalImage src={props.image.urls.regular} alt={props.image.alt_description}/>
+                    <ModalImage src={props.image.urls} alt={props.image.alt_description}/>
                 </ModalImageWrapper>
                 
                 <ExtraInfoWrapper>
                     <div className="description">
-                        <p>{props.image.alt_description}</p>
+                        <span>{props.image.alt_description}</span>
                     </div>
-                    <button className="btn">
+                    <button className="btn" onClick={() => props.displayImageInfo(props.image)}>
                         <FontAwesomeIcon icon={faInfoCircle}/>
                         <span>Info</span>
                     </button>             

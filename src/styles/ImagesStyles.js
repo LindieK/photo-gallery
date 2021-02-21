@@ -31,7 +31,8 @@ export const Placeholder= styled.div`
 `;
 
 export const StyledImage = styled.img.attrs(props => ({
-    src: props.src,
+    src: props.src.regular,
+    srcSet:`${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
     alt: props.alt,
 }))`
     position: absolute;

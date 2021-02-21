@@ -4,6 +4,7 @@ import Search from './components/Search'
 import Categories from './components/Categories'
 import Grid from './components/Grid'
 import ImageModal from './components/ImageModal'
+import InfoModal from './components/InfoModal'
 import {getInitialPics, getSearchResults, getCategoryPics} from './Api'
 
 
@@ -18,7 +19,8 @@ class App extends Component {
       photos: [],
       query: '',
       showModal: false,
-      modalPhoto:{}
+      modalPhoto:{},
+      showPhotoInfo: false
     }
 
   }
@@ -83,9 +85,21 @@ class App extends Component {
     })
   }
 
-  handleCloseModal = () => {
+  handleShowInfoModal = () =>{
+    this.setState({
+      showPhotoInfo: true
+    })
+  }
+
+  handleImageModalClose = () => {
     this.setState({
       showModal: false
+    })
+  }
+
+  handleInfoModalClose = () => {
+    this.setState({
+      showPhotoInfo: false
     })
   }
 
@@ -104,7 +118,8 @@ class App extends Component {
           <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
         </header>
         <Grid photos={photos} displayModal={this.handleShowImageInfo}/>
-        {this.state.showModal ? <ImageModal image={modalPhoto} onClose={this.handleCloseModal}/> : null}
+        {this.state.showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
+        {this.state.showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
       </div>
     )
   }

@@ -2,6 +2,18 @@
     max-width: 100%;
     max-height: 100%;
 }
+.authorInfo{
+    display: flex;
+}
+.authorName{
+    display: flex;
+    flex-direction: column;
+    margin-left: .5em;
+}
+span:nth-child(2){
+    font-size: .8em;
+    color: #767676;
+}
 .btn{
     background-color: transparent;
     font-size: 1em;
@@ -21,10 +33,17 @@
 }
 .description{
     align-self: center;
+    font-size: .8em;
+    color: #767676;
 }
 
 @media only screen and (max-width:767px){
-    .btn, .description{
+    .imageActions{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .btn{
         font-size: .8em;
     }
     .btn > span{
