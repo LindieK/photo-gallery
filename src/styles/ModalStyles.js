@@ -100,11 +100,12 @@ export const InfoModalOverlay = styled.div`
 
 export const InfoWrapper = styled.div`
     position: relative;
-    width 50%;
+    width 40%;
+    padding: 1em;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
 
     @media only screen and (max-width:767px){
-        width: 90%;
+        width: 80%;
     }
 `;
