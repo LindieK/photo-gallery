@@ -1,0 +1,33 @@
+.text{
+    font-size: .8em;
+    color: #767676;
+    display: block;
+    margin-bottom: .2em;
+}
+#modalTitle >  h2{
+    margin: .8em 0 0;
+}
+#downloads{
+    padding: 1em 0;
+}
+#downloads > .title span{
+    font-size: .8em;
+    margin-left: .25em;
+}
+.titleValue{
+    font-size: 1.25em;
+}
+.icon{
+    margin-right: .25em;
+    font-size: .8em;
+}
+hr{
+    color: #d1d1d1;
+}
+#cameraDetails{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#cameraDetails > div{
+    padding: .5em;
+}
