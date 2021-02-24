@@ -9,14 +9,14 @@ const ImageModal = (props) => {
 
     return ReactDOM.createPortal(
         <ModalOverlay>
-            <FontAwesomeIcon icon={faTimes} onClick={props.onClose}/>
+            <FontAwesomeIcon icon={faTimes} onClick={props.onClose} id="close"/>
             <ModalWrapper>
                 <ModalActions>
                     <div className="authorInfo">
                         <Avatar src={props.image.user.profile_image.small} alt="Author sssssProfile Photo"/>
                         <div className="authorName">
                             <span>{props.image.user.name}</span>
-                            <span>{props.image.user.instagram_username ? `@${props.image.user.instagram_username}` : ''}</span>
+                            <span id="instagram-name">{props.image.user.instagram_username ? `@${props.image.user.instagram_username}` : ''}</span>
                         </div>
                     </div>
 
