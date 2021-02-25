@@ -23,7 +23,3 @@ export const getInitialPics = async () => {
         return response
     });
 }
-
-export const downloadPhoto = (imageToDownload) => {
-    return 
-}
