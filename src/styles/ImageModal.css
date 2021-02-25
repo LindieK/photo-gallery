@@ -21,6 +21,9 @@
     font-size: .8em;
     color: #767676;
 }
+a{
+    text-decoration: none;
+}
 .btn{
     background-color: transparent;
     font-size: 1em;

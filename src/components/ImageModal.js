@@ -24,9 +24,9 @@ const ImageModal = (props) => {
                         <button className="btn">
                             <FontAwesomeIcon icon={faPlus}/>
                         </button>
-                        <button className="btn" value="">
+                        <a className="btn" download href={`${props.image.links.download}?force=true`}>
                         Download
-                        </button>
+                        </a>
                     </div>
                 </ModalActions>
                 
