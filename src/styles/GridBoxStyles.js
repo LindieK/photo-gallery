@@ -20,3 +20,19 @@ export const GridBox = styled.div`
         top: 12em;
     }
 `;
+
+export const SearchEmptyState = styled.div`
+    position: relative;
+    top: 14em;
+    width: 75vw;
+    margin: 0 auto;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+`;
+
+export const ResultsIcon = styled.div`
+    width: 30vw;
+    height: 30vw;
+`;

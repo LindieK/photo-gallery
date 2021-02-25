@@ -117,7 +117,7 @@ class App extends Component {
           </div>
           <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
         </header>
-        <Grid photos={photos} displayModal={this.handleShowImageInfo}/>
+        <Grid photos={photos} query={query} displayModal={this.handleShowImageInfo}/>
         {this.state.showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
         {this.state.showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
       </div>
