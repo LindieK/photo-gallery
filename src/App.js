@@ -92,6 +92,7 @@ class App extends Component {
       showModal: true,
       modalPhoto: photo
     })
+    document.body.style.overflow = "hidden";
   }
 
   handleShowInfoModal = () =>{
@@ -104,6 +105,7 @@ class App extends Component {
     this.setState({
       showModal: false
     })
+    document.body.style.overflow = "visible";
   }
 
   handleInfoModalClose = () => {
