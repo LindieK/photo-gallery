@@ -9,7 +9,7 @@ describe('App Component', () => {
   it('should render Nav and Grid Components', () => {
     const app = shallow(<App />);
 
-    expect(app.containsAllMatchingElements([<Search/>, <Categories />, <Grid />])).toEqual(true);
+    expect(app.containsAllMatchingElements([<Search/>, <Categories />])).toEqual(true);
   });
   
 });

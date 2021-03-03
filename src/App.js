@@ -15,6 +15,7 @@ class App extends Component {
     super(props)
   
     this.state = {
+      loadingState: true,
       selectedTab: 1,
       photos: [],
       query: '',
@@ -29,7 +30,8 @@ class App extends Component {
     getInitialPics().then(response => {
       console.log(response);
         this.setState({
-            photos: response.data
+            photos: response.data,
+            loadingState: false
         })
     })
   }
@@ -45,7 +47,8 @@ class App extends Component {
       getInitialPics().then(response => {
         console.log(response);
           this.setState({
-              photos: response.data
+              photos: response.data,
+              loadingState: false
           })
       })
       :
@@ -66,16 +69,17 @@ class App extends Component {
         query: event.target.value
     })
   }
-  
+
   handleFormSubmit = (event) => {
     let searchQuery = this.state.query;
     event.preventDefault();
-    getSearchResults(searchQuery).then(response =>{
-      console.log(response);
-      this.setState({
-        photos: response.data.results
+      getSearchResults(searchQuery).then(response =>{
+        console.log(response);
+        this.setState({
+          photos: response.data.results
+        })
       })
-    })
+
   }
 
   handleShowImageInfo = (photo) => {
@@ -83,6 +87,7 @@ class App extends Component {
       showModal: true,
       modalPhoto: photo
     })
+    document.body.style.overflow = "hidden";
   }
 
   handleShowInfoModal = () =>{
@@ -95,6 +100,7 @@ class App extends Component {
     this.setState({
       showModal: false
     })
+    document.body.style.overflow = "visible";
   }
 
   handleInfoModalClose = () => {
@@ -104,8 +110,11 @@ class App extends Component {
   }
 
   render() {
+    const loadingState = this.state.loadingState;
     const photos = this.state.photos;
     const query = this.state.query;
+    const showModal = this.state.showModal;
+    const showPhotoInfo = this.state.showPhotoInfo;
     const modalPhoto = this.state.modalPhoto;
 
     return (
@@ -117,9 +126,9 @@ class App extends Component {
           </div>
           <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
         </header>
-        <Grid photos={photos} displayModal={this.handleShowImageInfo}/>
-        {this.state.showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
-        {this.state.showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
+        {loadingState? <p>Loading...</p> :<Grid photos={photos} query={query} displayModal={this.handleShowImageInfo}/>}
+        {showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
+        {showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
       </div>
     )
   }
