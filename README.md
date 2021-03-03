@@ -1,10 +1,15 @@
 # Unsplash Photo Gallery React Application
 
-![Photo Gallery Desktop view image](/src/image/PG-Desktop.JPG)
-
-You can view images, image information and search for images
+You can view images, image information and search for images.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Desktop view
+![Photo Gallery Desktop view image](./src/image/PG - Desktop.JPG)
+
+## Tablet and Mobile view
+![Photo Gallery Tablet view image](./src/image/PG - Tablet.JPG)
+![Photo Gallery Mobile view image](./src/image/PG - Mobile.JPG)
 
 ## Available Scripts
 
