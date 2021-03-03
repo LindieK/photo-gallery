@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Unsplash Photo Gallery React Application
+
+![Photo Gallery Desktop view image](/src/image/PG-Desktop.JPG)
+
+You can view images, image information and search for images
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
