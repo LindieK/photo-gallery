@@ -67,15 +67,24 @@ class App extends Component {
     })
   }
   
+  validateForm = (query) => {
+    let pattern = /[^-!$%^&*()_+|~=`{}[\]:";'<>?,./]/;
+    return pattern.test(query)
+
+  }
+
   handleFormSubmit = (event) => {
     let searchQuery = this.state.query;
     event.preventDefault();
-    getSearchResults(searchQuery).then(response =>{
-      console.log(response);
-      this.setState({
-        photos: response.data.results
+    let valid = this.validateForm(searchQuery);
+    
+      getSearchResults(searchQuery).then(response =>{
+        console.log(response);
+        this.setState({
+          photos: response.data.results
+        })
       })
-    })
+
   }
 
   handleShowImageInfo = (photo) => {
