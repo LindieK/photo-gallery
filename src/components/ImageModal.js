@@ -4,6 +4,7 @@ import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions,
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus, faInfoCircle, faTimes} from '@fortawesome/free-solid-svg-icons'
 import '../styles/ImageModal.css';
+import avatar from '../image/user.png'
 
 const ImageModal = (props) => {
 
@@ -13,7 +14,7 @@ const ImageModal = (props) => {
             <ModalWrapper>
                 <ModalActions>
                     <div className="authorInfo">
-                        <Avatar src={props.image.user.profile_image.small} alt="Author sssssProfile Photo"/>
+                        <Avatar src={props.image.user.profile_image.medium ? props.image.user.profile_image.medium : avatar} alt="Author sssssProfile Photo"/>
                         <div className="authorName">
                             <span>{props.image.user.name}</span>
                             <span id="instagram-name">{props.image.user.instagram_username ? `@${props.image.user.instagram_username}` : ''}</span>
