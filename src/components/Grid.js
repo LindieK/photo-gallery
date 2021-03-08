@@ -13,10 +13,17 @@ class Grid extends Component {
                 
                 <SearchEmptyState>
                     <ResultsIcon src={icon} alt="Empty Search State Icon" />
-                    <ResultsMsg>
-                        <p className="error-msg">No results for {query}</p>
-                        <p className="error-msg">Try a different search term</p>
-                    </ResultsMsg>
+                    {query?
+                        <ResultsMsg>
+                            <p className="error-msg">No results for {query}</p>
+                            <p className="error-msg">Try a different search term</p>
+                        </ResultsMsg>
+                        :
+                        <ResultsMsg>
+                            <p className="error-msg">Oh my something went wrong. There are no pictures to show you.</p>
+                            <p className="error-msg">Try refreshing the page</p>
+                        </ResultsMsg>
+                    }
                     
                 </SearchEmptyState>
                 : 
