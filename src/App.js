@@ -5,6 +5,7 @@ import Categories from './components/Categories'
 import Grid from './components/Grid'
 import ImageModal from './components/ImageModal'
 import InfoModal from './components/InfoModal'
+import Spinner from './components/Spinner'
 import {getInitialPics, getSearchResults, getCategoryPics} from './Api'
 
 
@@ -126,7 +127,7 @@ class App extends Component {
           </div>
           <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
         </header>
-        {loadingState? <p>Loading...</p> :<Grid photos={photos} query={query} displayModal={this.handleShowImageInfo}/>}
+        {loadingState? <Spinner/> :<Grid photos={photos} query={query} displayModal={this.handleShowImageInfo}/>}
         {showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
         {showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
       </div>

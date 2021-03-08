@@ -6,6 +6,7 @@ export const ModalOverlay = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+    height: 100%;
     background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
@@ -90,6 +91,7 @@ export const InfoModalOverlay = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+    height: 100%;
     background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;

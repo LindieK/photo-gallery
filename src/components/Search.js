@@ -7,10 +7,10 @@ class Search extends Component {
 
     render() {
         const {searchTerm, handleSearchTermChange, handleFormSubmit} = this.props;
-        const pattern = /[^-!$%^&*()_+|~=`{}[\]:";'<>?,./\n ]+/;
+        const pattern = /[^\n ]+/;
         return (
             <form onSubmit={handleFormSubmit}>
-                <input type='text' placeholder='Search' value={searchTerm} onChange={handleSearchTermChange} pattern={pattern} title="Must be letters and/or numbers only"/>
+                <input type='text' placeholder='Search' value={searchTerm} onChange={handleSearchTermChange} pattern={pattern} title="Must be letters and/or numbers only" required/>
             </form>
         )
     }
