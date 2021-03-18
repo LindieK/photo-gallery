@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowDown} from '@fortawesome/free-solid-svg-icons'
-import {InfoModalOverlay, InfoWrapper} from '../styles/ModalStyles'
-import '../styles/InfoModal.css'
+import {InfoModalOverlay, InfoWrapper} from '../../styles/ModalStyles'
+import '../../styles/InfoModal.css'
 
  const InfoModal = (props) => {
     let resolution = `${props.imageInfo.width} x ${props.imageInfo.height}`;
