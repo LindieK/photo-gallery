@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import './styles/App.css';
-import Search from './components/Search'
-import Categories from './components/Categories'
-import Grid from './components/Grid'
-import ImageModal from './components/ImageModal'
-import InfoModal from './components/InfoModal'
-import Spinner from './components/Spinner'
-import {getInitialPics, getSearchResults, getCategoryPics} from './Api'
+import '../styles/App.css';
+import Search from '../components/app/Search'
+import Categories from '../components/app/Categories'
+import Grid from '../components/app/Grid'
+import ImageModal from '../components/app/ImageModal'
+import InfoModal from '../components/app/InfoModal'
+import Spinner from '../components/app/Spinner'
+import {getInitialPics, getSearchResults, getCategoryPics} from '../Api'
 
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {GridBox, SearchEmptyState, ResultsIcon, ResultsMsg} from '../styles/GridBoxStyles'
+import {GridBox, SearchEmptyState, ResultsIcon, ResultsMsg} from '../../styles/GridBoxStyles'
 import LazyImage from './LazyImage'
 import icon from '../image/search-results.svg'
 

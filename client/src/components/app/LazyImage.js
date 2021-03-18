@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {ImageWrapper, Placeholder, StyledImage} from '../styles/ImagesStyles'
+import {ImageWrapper, Placeholder, StyledImage} from '../../styles/ImagesStyles'
 import LazyLoad from 'react-lazyload'
 
 
