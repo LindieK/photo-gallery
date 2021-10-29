@@ -31,7 +31,7 @@ export const SearchEmptyState = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
 `;
 
 export const ResultsIcon = styled.img.attrs(props => ({

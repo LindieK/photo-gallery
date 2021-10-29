@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper, Avatar} from '../styles/ModalStyles'
+import {ModalOverlay, ModalWrapper, ModalImageWrapper, ModalImage, ModalActions, ExtraInfoWrapper, Avatar} from '../../styles/ModalStyles'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus, faInfoCircle, faTimes} from '@fortawesome/free-solid-svg-icons'
-import '../styles/ImageModal.css';
-import avatar from '../image/user.png'
+import '../../styles/ImageModal.css';
+import avatar from '../../image/user.png'
 
 const ImageModal = (props) => {
 
