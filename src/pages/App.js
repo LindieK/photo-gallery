@@ -1,114 +1,106 @@
-import React, { Component } from 'react'
-import '../styles/App.css';
-import Search from '../components/app/Search'
-import Categories from '../components/app/Categories'
-import Grid from '../components/app/Grid'
-import ImageModal from '../components/app/ImageModal'
-import InfoModal from '../components/app/InfoModal'
-import Spinner from '../components/app/Spinner'
-import {getInitialPics, getSearchResults, getCategoryPics} from '../Api'
-
-
+import React, { Component } from "react";
+import "../styles/App.css";
+import Search from "../components/search/Search";
+import Categories from "../components/tabs/Categories";
+import Grid from "../components/layout/Grid";
+import ImageModal from "../components/imagemodal/ImageModal";
+import InfoModal from "../components/infomodal/InfoModal";
+import Spinner from "../components/spinner/Spinner";
+import { getInitialPics, getSearchResults, getCategoryPics } from "../Api";
 
 class App extends Component {
-
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
       loadingState: true,
       selectedTab: 1,
       photos: [],
-      query: '',
+      query: "",
       showModal: false,
-      modalPhoto:{},
-      showPhotoInfo: false
-    }
-
+      modalPhoto: {},
+      showPhotoInfo: false,
+    };
   }
 
-  componentDidMount(){
-    getInitialPics().then(response => {
+  componentDidMount() {
+    getInitialPics().then((response) => {
       console.log(response);
-        this.setState({
-            photos: response.data,
-            loadingState: false
-        })
-    })
+      this.setState({
+        photos: response.data,
+        loadingState: false,
+      });
+    });
   }
 
-
-  isTabActive = (id) =>{
+  isTabActive = (id) => {
     return this.state.selectedTab === id;
-  }
-
+  };
 
   setActiveTab = (selectedTabId, selectedTabName) => {
-      selectedTabId === 1 ?
-      getInitialPics().then(response => {
-        console.log(response);
+    selectedTabId === 1
+      ? getInitialPics().then((response) => {
+          console.log(response);
           this.setState({
-              photos: response.data,
-              loadingState: false
-          })
-      })
-      :
-      getCategoryPics(selectedTabName).then(response =>{
-        console.log(response);
+            photos: response.data,
+            loadingState: false,
+          });
+        })
+      : getCategoryPics(selectedTabName).then((response) => {
+          console.log(response);
           this.setState({
-              photos: response.data
-          })
-      })
+            photos: response.data,
+          });
+        });
 
-      this.setState({
-          selectedTab: selectedTabId
-      })
-  }
+    this.setState({
+      selectedTab: selectedTabId,
+    });
+  };
 
   handleSearchTermChange = (event) => {
     this.setState({
-        query: event.target.value
-    })
-  }
+      query: event.target.value,
+    });
+  };
 
   handleFormSubmit = (event) => {
     let searchQuery = this.state.query;
     event.preventDefault();
-      getSearchResults(searchQuery).then(response =>{
-        console.log(response);
-        this.setState({
-          photos: response.data.results
-        })
-      })
-
-  }
+    getSearchResults(searchQuery).then((response) => {
+      console.log(response);
+      this.setState({
+        photos: response.data.results,
+      });
+    });
+  };
 
   handleShowImageInfo = (photo) => {
     this.setState({
       showModal: true,
-      modalPhoto: photo
-    })
+      modalPhoto: photo,
+    });
     document.body.style.overflow = "hidden";
-  }
+  };
 
-  handleShowInfoModal = () =>{
+  handleShowInfoModal = () => {
     this.setState({
-      showPhotoInfo: true
-    })
-  }
+      showPhotoInfo: true,
+    });
+  };
 
   handleImageModalClose = () => {
     this.setState({
-      showModal: false
-    })
+      showModal: false,
+    });
     document.body.style.overflow = "visible";
-  }
+  };
 
   handleInfoModalClose = () => {
     this.setState({
-      showPhotoInfo: false
-    })
-  }
+      showPhotoInfo: false,
+    });
+  };
 
   render() {
     const loadingState = this.state.loadingState;
@@ -121,17 +113,43 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <div className='Nav'>
-              <h1>PG</h1>
-              <Search searchTerm={query} handleSearchTermChange={this.handleSearchTermChange} handleFormSubmit={this.handleFormSubmit}/>
+          <div className="Nav">
+            <h1>PG</h1>
+            <Search
+              searchTerm={query}
+              handleSearchTermChange={this.handleSearchTermChange}
+              handleFormSubmit={this.handleFormSubmit}
+            />
           </div>
-          <Categories isTabActive={this.isTabActive} setActiveTab={this.setActiveTab}/>
+          <Categories
+            isTabActive={this.isTabActive}
+            setActiveTab={this.setActiveTab}
+          />
         </header>
-        {loadingState? <Spinner/> :<Grid photos={photos} query={query} displayModal={this.handleShowImageInfo}/>}
-        {showModal ? <ImageModal image={modalPhoto} displayImageInfo={this.handleShowInfoModal} onClose={this.handleImageModalClose}/> : null}
-        {showPhotoInfo ? <InfoModal imageInfo={modalPhoto} onClose={this.handleInfoModalClose}/>: null}
+        {loadingState ? (
+          <Spinner />
+        ) : (
+          <Grid
+            photos={photos}
+            query={query}
+            displayModal={this.handleShowImageInfo}
+          />
+        )}
+        {showModal ? (
+          <ImageModal
+            image={modalPhoto}
+            displayImageInfo={this.handleShowInfoModal}
+            onClose={this.handleImageModalClose}
+          />
+        ) : null}
+        {showPhotoInfo ? (
+          <InfoModal
+            imageInfo={modalPhoto}
+            onClose={this.handleInfoModalClose}
+          />
+        ) : null}
       </div>
-    )
+    );
   }
 }
 
