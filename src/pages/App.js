@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+
 import "../styles/App.css";
-import Search from "../components/search/Search";
-import Categories from "../components/tabs/Categories";
+import Header from "../components/header/Header";
+import Categories from "../components/categories/Categories";
 import Grid from "../components/layout/Grid";
 import ImageModal from "../components/imagemodal/ImageModal";
 import InfoModal from "../components/infomodal/InfoModal";
@@ -112,20 +113,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <div className="Nav">
-            <h1>PG</h1>
-            <Search
-              searchTerm={query}
-              handleSearchTermChange={this.handleSearchTermChange}
-              handleFormSubmit={this.handleFormSubmit}
-            />
-          </div>
-          <Categories
-            isTabActive={this.isTabActive}
-            setActiveTab={this.setActiveTab}
-          />
-        </header>
+        <Header
+          isTabActive={this.isTabActive}
+          setActiveTab={this.setActiveTab}
+          searchTerm={query}
+          handleSearchTermChange={this.handleSearchTermChange}
+          handleFormSubmit={this.handleFormSubmit}
+        />
+
         {loadingState ? (
           <Spinner />
         ) : (
