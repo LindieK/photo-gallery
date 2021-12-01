@@ -59,11 +59,11 @@ class Home extends Component {
     });
   };
 
-  handleSearchTermChange = (event) => {
+  /*handleSearchTermChange = (event) => {
     this.setState({
       query: event.target.value,
     });
-  };
+  };*/
 
   handleFormSubmit = (event) => {
     let searchQuery = this.state.query;
@@ -117,7 +117,7 @@ class Home extends Component {
           isTabActive={this.isTabActive}
           setActiveTab={this.setActiveTab}
           searchTerm={query}
-          handleSearchTermChange={this.handleSearchTermChange}
+          //handleSearchTermChange={this.handleSearchTermChange}
           handleFormSubmit={this.handleFormSubmit}
         />
 

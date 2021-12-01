@@ -8,14 +8,14 @@ const Header = (props) => {
     setActiveTab,
     isTabActive,
     searchTerm,
-    handleSearchTermChange,
+    //handleSearchTermChange,
     handleFormSubmit,
   } = props;
   return (
     <header>
       <Nav
         searchTerm={searchTerm}
-        handleSearchTermChange={handleSearchTermChange}
+        //handleSearchTermChange={handleSearchTermChange}
         handleFormSubmit={handleFormSubmit}
       />
       <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />

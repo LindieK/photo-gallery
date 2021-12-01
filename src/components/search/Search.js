@@ -3,7 +3,8 @@ import "./Search.scss";
 
 class Search extends Component {
   render() {
-    const { searchTerm, handleSearchTermChange, handleFormSubmit } = this.props;
+    const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } =
+      this.props;
     const pattern = /[^\n ]+/;
     return (
       <form onSubmit={handleFormSubmit}>
@@ -11,7 +12,7 @@ class Search extends Component {
           type="text"
           placeholder="Search"
           value={searchTerm}
-          onChange={handleSearchTermChange}
+          //onChange={handleSearchTermChange}
           pattern={pattern}
           title="Must be letters and/or numbers only"
           required
