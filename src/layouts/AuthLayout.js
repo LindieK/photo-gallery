@@ -28,6 +28,7 @@ const CoverImage = styled.div`
 const FormSection = styled.main`
   position: relative;
   height: 100vh;
+  padding: 4em;
 
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 45%;
