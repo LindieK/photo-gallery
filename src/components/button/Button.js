@@ -7,10 +7,10 @@ const StyledButton = styled.button`
   background-color: ${(props) => (props.secondary ? "transparent" : "#504CCA")};
   border: 2px solid #504cca;
   border-radius: 12px;
-  padding: 0.5em 1.25em;
-  margin: 0.5em;
-  font-size: 18px;
+  padding: 1em 1.75em;
+  margin: 0.5em 0;
   font-weight: bold;
+  font-size: 0.8em;
   cursor: pointer;
 `;
 //TODO: create default font size and font family
