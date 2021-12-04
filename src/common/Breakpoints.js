@@ -1,15 +1,15 @@
 const size = {
-  xs: "320px",
-  sm: "640px",
+  sm: "576px",
   md: "768px",
-  lg: "1200px",
+  lg: "1050px",
+  xlg: "3000px",
 };
 
 const device = {
-  xs: `(min-width: ${size.xs})`,
   sm: `(min-width: ${size.sm})`,
   md: `(min-width: ${size.md})`,
   lg: `(min-width: ${size.lg})`,
+  xlg: `(min-width: ${size.xlg})`,
 };
 
 export default { size, device };

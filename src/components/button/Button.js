@@ -2,16 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import breakpoint from "../../common/Breakpoints";
+
 const StyledButton = styled.button`
   color: ${(props) => (props.secondary ? "#504CCA" : "#EEEFF1")};
   background-color: ${(props) => (props.secondary ? "transparent" : "#504CCA")};
   border: 2px solid #504cca;
   border-radius: 12px;
   padding: 1em 1.75em;
-  margin: 0.5em 0;
+  margin: 1em 0;
   font-weight: bold;
   font-size: 0.8em;
   cursor: pointer;
+
+  @media only screen and ${breakpoint.device.xlg} {
+    font-size: 1.6em;
+  }
 `;
 //TODO: create default font size and font family
 

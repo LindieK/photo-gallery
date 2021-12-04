@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import breakpoint from "../../common/Breakpoints";
+
 const StyledInputContainer = styled.div`
   margin: 1em 0;
   display: flex;
@@ -13,18 +15,32 @@ const StyledInputLabel = styled.label`
   font-size: 0.75em;
   color: #333333;
   margin-bottom: 0.5em;
+
+  @media only screen and ${breakpoint.device.xlg} {
+    font-size: 1.5em;
+  }
 `;
 
 const StyledInput = styled.input`
   border: 1px solid #9e9ea0;
   border-radius: 8px;
   padding: 0.75em;
-  font-size: 18px;
+  font-size: 1em;
 
   &:focus {
     border: 2px solid #504cca;
     outline: none !important;
     background-color: #dfdef9;
+  }
+
+  @media only screen and ${breakpoint.device.xlg} {
+    border-width: 2px;
+    font-size: 2em;
+    border-radius: 20px;
+
+    &:focus {
+      border-width: 4px;
+    }
   }
 `;
 //TODO: create different component specifically for type= file

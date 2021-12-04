@@ -26,12 +26,25 @@ const CoverImage = styled.div`
   }
 `;
 const FormSection = styled.main`
-  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
   height: 100vh;
-  padding: 4em;
+
+  @media only screen and ${breakpoint.device.md} {
+    padding: 2em;
+    height: 90vh;
+  }
 
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 45%;
+    padding: 4em;
+    height: unset;
+    align-items: unset;
+  }
+
+  @media only screen and ${breakpoint.device.xlg} {
+    align-items: center;
   }
 `;
 
