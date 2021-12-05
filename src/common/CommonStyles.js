@@ -19,7 +19,7 @@ export const AuthenticationPageContainer = styled.div`
 export const LogoText = styled.h3`
   font-weight: 800;
   font-size: 2em;
-  color: #504cca;
+  color: var(--main-color);
 
   @media only screen and ${breakpoint.device.xlg} {
     font-size: 4em;
@@ -39,7 +39,7 @@ export const HeaderTextContainer = styled.hgroup`
     font-weight: 700;
     line-height: 1.462;
     margin-bottom: 0.25em;
-    color: #333333;
+    color: ${({ theme }) => theme.primaryText};
 
     @media only screen and ${breakpoint.device.xlg} {
       font-size: 4em;
@@ -47,7 +47,7 @@ export const HeaderTextContainer = styled.hgroup`
   }
 
   .sub-header {
-    color: #929292;
+    color: ${({ theme }) => theme.secondaryText};
     font-weight: 500;
     margin: 0;
 
@@ -60,7 +60,7 @@ export const HeaderTextContainer = styled.hgroup`
 export const SupportText = styled.p`
   margin: 0;
   font-size: 0.88em;
-  color: #929292;
+  color: ${({ theme }) => theme.secondaryText};
 `;
 
 export const LoginText = styled(SupportText)`
@@ -68,7 +68,7 @@ export const LoginText = styled(SupportText)`
   margin-top: 1em;
 
   a {
-    color: #504cca;
+    color: var(--main-color);
     cursor: pointer;
   }
 
