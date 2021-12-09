@@ -8,11 +8,11 @@ const GridContainer = styled.div`
   gap: 1em;
   padding: 1em;
 
-  @media only screen and (${breakpoint.device.md}) {
-    grid-template-columns: 1fr 1fr 1fr;
+  @media only screen and ${breakpoint.device.md} {
+    grid-template-columns: repeat(3, 1fr);
   }
-  @media only screen and (${breakpoint.device.lg}) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media only screen and ${breakpoint.device.lg} {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 
