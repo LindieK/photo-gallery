@@ -1,6 +1,9 @@
 import React from "react";
 
 import Search from "../search/Search";
+import Avatar from "react-avatar";
+
+import defaultPic from "../../assets/profile.png";
 
 const Nav = (props) => {
   const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } = props;
@@ -11,6 +14,13 @@ const Nav = (props) => {
         searchTerm={searchTerm}
         //handleSearchTermChange={handleSearchTermChange}
         handleFormSubmit={handleFormSubmit}
+      />
+
+      <Avatar
+        name="Default"
+        src={defaultPic}
+        alt="user profile picture"
+        round={true}
       />
     </nav>
   );
