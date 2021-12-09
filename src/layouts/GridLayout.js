@@ -11,7 +11,7 @@ const GridContainer = styled.div`
   @media only screen and ${breakpoint.device.md} {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media only screen and ${breakpoint.device.lg} {
+  @media only screen and ${breakpoint.device.xlg} {
     grid-template-columns: repeat(4, 1fr);
   }
 `;
