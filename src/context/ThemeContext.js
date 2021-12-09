@@ -22,7 +22,7 @@ const AppThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
-    setTheme(JSON.parse(localTheme));
+    localTheme && setTheme(JSON.parse(localTheme));
   }, []);
 
   return (
