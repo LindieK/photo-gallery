@@ -24,7 +24,12 @@ const CollectionSection = styled.div`
   .title {
     color: ${({ theme }) => theme.primaryText};
     font-size: 1.5em;
-    margin-top: 0;
+    padding-left: 1em;
+
+    @media only screen and ${breakpoint.device.lg} {
+      margin-top: 0;
+      padding: unset;
+    }
   }
 
   @media only screen and ${breakpoint.device.lg} {
