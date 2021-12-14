@@ -5,7 +5,7 @@ import {
   ResultsIcon,
   ResultsMsg,
 } from "../../styles/GridBoxStyles";
-import LazyImage from "../lazyimage/LazyImage";
+import LazyImageCard from "../lazyimage/LazyImageCard";
 import icon from "../../image/search-results.svg";
 
 class Grid extends Component {
@@ -33,7 +33,7 @@ class Grid extends Component {
         ) : (
           <GridBox>
             {photos.map((photo) => (
-              <LazyImage
+              <LazyImageCard
                 key={photo.id}
                 image={photo.urls}
                 alt={photo.alt_description}
