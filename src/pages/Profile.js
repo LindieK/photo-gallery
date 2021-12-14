@@ -22,6 +22,7 @@ const CollectionSection = styled.div`
   width: 100%;
 
   .title {
+    color: ${({ theme }) => theme.primaryText};
     font-size: 1.5em;
     margin-top: 0;
   }
@@ -60,6 +61,8 @@ const ProfileAside = styled.div`
 `;
 
 const UserInfo = styled.div`
+  color: ${({ theme }) => theme.primaryText};
+
   .description {
     color: ${({ theme }) => theme.secondaryText};
     font-weight: 500;
