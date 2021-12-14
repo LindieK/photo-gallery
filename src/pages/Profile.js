@@ -5,7 +5,7 @@ import Avatar from "react-avatar";
 import defaultPic from "../assets/profile.png";
 import breakpoint from "../common/Breakpoints";
 import Button from "../components/button/Button";
-import LazyImageCard from "../components/lazyimage/LazyImageCard";
+import Tile from "../components/tile/Tile";
 
 const ProfilePageLayout = styled.div`
   display: flex;
@@ -100,14 +100,14 @@ function Profile({ user, handleClick }) {
         <h4 className="title">Collection(2)</h4>
         {/* TODO: Add no photos section for when thee are no photos to show*/}
         <GridContainer>
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
-          <LazyImageCard image={defaultPic} />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
+          <Tile />
         </GridContainer>
       </CollectionSection>
     </ProfilePageLayout>
