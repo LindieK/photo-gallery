@@ -60,7 +60,8 @@ const ProfileAside = styled.div`
 
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 25%;
-    border-radius: 24px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px 0 rgb(186, 184, 217);
     margin: 0.5em;
   }
 `;
