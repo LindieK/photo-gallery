@@ -8,6 +8,7 @@ import Button from "../components/button/Button";
 import Tile from "../components/tile/Tile";
 
 const ProfilePageLayout = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.background};
