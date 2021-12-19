@@ -1,28 +1,70 @@
 import React from "react";
+import Avatar from "react-avatar";
+import styled from "styled-components";
 
 import Search from "../search/Search";
-import Avatar from "react-avatar";
-
 import defaultPic from "../../assets/profile.png";
+import breakpoint from "../../common/Breakpoints";
+
+const StyledNav = styled.nav`
+  background: ${({ theme }) => theme.body};
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 2;
+`;
+
+const NavItems = styled.div`
+  display: flex;
+  align-items: center;
+
+  .profile-icon {
+    margin-right: 0.75em;
+
+    @media only screen and ${breakpoint.device.md} {
+      margin-right: 1em;
+    }
+  }
+`;
+
+const NavLogoText = styled.h3`
+  font-weight: 800;
+  font-size: 1.5em;
+  padding-left: 0.75em;
+  color: var(--main-color);
+
+  @media only screen and ${breakpoint.device.md} {
+    padding-left: 1em;
+  }
+  @media only screen and ${breakpoint.device.xlg} {
+    font-size: 2.25em;
+  }
+`;
 
 const Nav = (props) => {
   const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } = props;
   return (
-    <nav>
-      <h1>PG</h1>
-      <Search
-        searchTerm={searchTerm}
-        //handleSearchTermChange={handleSearchTermChange}
-        handleFormSubmit={handleFormSubmit}
-      />
+    <StyledNav>
+      <NavLogoText>PG</NavLogoText>
+      <NavItems>
+        <Search
+          searchTerm={searchTerm}
+          //handleSearchTermChange={handleSearchTermChange}
+          handleFormSubmit={handleFormSubmit}
+        />
 
-      <Avatar
-        name="Default"
-        src={defaultPic}
-        alt="user profile picture"
-        round={true}
-      />
-    </nav>
+        <Avatar
+          name="Default"
+          className="profile-icon"
+          src={defaultPic}
+          size={50}
+          alt="user profile picture"
+          round={true}
+        />
+      </NavItems>
+    </StyledNav>
   );
 };
 export default Nav;
