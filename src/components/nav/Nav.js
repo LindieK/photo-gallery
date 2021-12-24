@@ -1,9 +1,8 @@
 import React from "react";
-import Avatar from "react-avatar";
 import styled from "styled-components";
 
 import Search from "../search/Search";
-import defaultPic from "../../assets/profile.png";
+import DropdownMenu from "../dropdownmenu/DropdownMenu";
 import breakpoint from "../../common/Breakpoints";
 
 const StyledNav = styled.nav`
@@ -43,14 +42,9 @@ const NavLogoText = styled.h3`
   }
 `;
 
-const AvatarButton = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-`;
-
 const Nav = (props) => {
   const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } = props;
+
   return (
     <StyledNav>
       <NavLogoText>PG</NavLogoText>
@@ -60,16 +54,7 @@ const Nav = (props) => {
           //handleSearchTermChange={handleSearchTermChange}
           handleFormSubmit={handleFormSubmit}
         />
-        <AvatarButton>
-          <Avatar
-            name="Default"
-            className="profile-icon"
-            src={defaultPic}
-            size={50}
-            alt="user profile picture"
-            round={true}
-          />
-        </AvatarButton>
+        <DropdownMenu />
       </NavItems>
     </StyledNav>
   );
