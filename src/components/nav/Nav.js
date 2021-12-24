@@ -43,6 +43,12 @@ const NavLogoText = styled.h3`
   }
 `;
 
+const AvatarButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+`;
+
 const Nav = (props) => {
   const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } = props;
   return (
@@ -54,15 +60,16 @@ const Nav = (props) => {
           //handleSearchTermChange={handleSearchTermChange}
           handleFormSubmit={handleFormSubmit}
         />
-
-        <Avatar
-          name="Default"
-          className="profile-icon"
-          src={defaultPic}
-          size={50}
-          alt="user profile picture"
-          round={true}
-        />
+        <AvatarButton>
+          <Avatar
+            name="Default"
+            className="profile-icon"
+            src={defaultPic}
+            size={50}
+            alt="user profile picture"
+            round={true}
+          />
+        </AvatarButton>
       </NavItems>
     </StyledNav>
   );
