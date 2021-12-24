@@ -1,34 +1,29 @@
-ul{
-    list-style: none;
-    display: inline-flex;
-    width: 100vw;
-    padding: 0;
-    overflow: auto;
-    white-space: nowrap;
+ul {
+  list-style: none;
+  display: inline-flex;
+  width: 100vw;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
 }
 
-li{
-    color: #6f788a;
-    padding: 1em;
-    cursor: pointer;
+li {
+  color: #6f788a;
+  padding: 1em;
+  cursor: pointer;
 }
 
-li:hover{
-    color: black;
-}
-.active{
-    font-weight: 600;
-    color:black;
-    border-bottom: 3px solid black;
+li:hover {
+  color: black;
 }
 
-@media only screen and (max-width: 767px){
-    li{
-        padding: 1em 1.25em;
-    }
+@media only screen and (max-width: 767px) {
+  li {
+    padding: 1em 1.25em;
+  }
 }
 @media only screen and (min-width: 600px) {
-    ul{
-        justify-content: space-around;
-    }
+  ul {
+    justify-content: space-around;
+  }
 }
