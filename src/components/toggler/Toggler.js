@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ThemeContext } from "../../context/ThemeContext";
 
@@ -9,7 +10,9 @@ const Toggler = ({ ...props }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      <Toggle {...props}>{theme.modeIcon}</Toggle>
+      <Toggle {...props}>
+        <FontAwesomeIcon icon={theme.modeIcon} />
+      </Toggle>
     </>
   );
 };
