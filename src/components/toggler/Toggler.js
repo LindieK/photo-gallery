@@ -4,14 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { ThemeContext } from "../../context/ThemeContext";
 
-const Toggle = styled.button``;
+const Toggle = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
 
 const Toggler = ({ ...props }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
       <Toggle {...props}>
-        <FontAwesomeIcon icon={theme.modeIcon} />
+        <FontAwesomeIcon
+          icon={theme.modeIcon}
+          color={theme.primaryText}
+          className="fa-2x"
+        />
       </Toggle>
     </>
   );
