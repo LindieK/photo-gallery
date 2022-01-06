@@ -6,7 +6,7 @@ export const lightTheme = {
   primaryText: "#362D3D",
   secondaryText: "#9E9EA0",
   toggleBorder: "#FFFFFF",
-  modeIcon: faSun,
+  modeIcon: faMoon,
 };
 
 export const darkTheme = {
@@ -15,5 +15,5 @@ export const darkTheme = {
   primaryText: "#EEEFF1",
   secondaryText: "#9E9EA0",
   toggleBorder: "#6B8096",
-  modeIcon: faMoon,
+  modeIcon: faSun,
 };
