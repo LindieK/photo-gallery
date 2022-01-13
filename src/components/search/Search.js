@@ -6,7 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import breakpoint from "../../common/Breakpoints";
 
 const StyledSearchForm = styled.form`
-  width: 14em;
+  display: flex;
 
   @media only screen and ${breakpoint.device.md} {
     width: 20em;
@@ -19,13 +19,19 @@ const SearchIcon = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+
+  svg {
+    color: ${({ theme }) => theme.primaryText};
+  }
 `;
 
 const StyledSearch = styled.input`
-  padding: 0.5em 1em;
-  border-radius: 4px;
+  padding: 0.75em 1em;
+  border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.secondaryText};
   width: 80%;
+  background: none;
+  color: ${({ theme }) => theme.primaryText};
 `;
 
 const Search = ({
