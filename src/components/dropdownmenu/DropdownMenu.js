@@ -11,6 +11,10 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 const MENU_OPTIONS = [
   {
+    text: "Home",
+    linkTo: "/home",
+  },
+  {
     text: "Profile",
     linkTo: "/profile",
   },
@@ -80,7 +84,8 @@ const DropdownMenu = () => {
         ))}
         <hr />
         <MenuItem>
-          <p>Night Mode</p> <Toggler onClick={toggleTheme} />
+          <p>Night Mode</p>
+          <Toggler onClick={toggleTheme} />
         </MenuItem>
         <MenuItem>Log Out</MenuItem>
       </StyledDropdown>
