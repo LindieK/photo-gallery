@@ -6,6 +6,12 @@ const StyledMenuItem = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 1em 0;
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.primaryText};
+    width: 100%;
+  }
 `;
 
 const MenuItem = ({ children }) => {
