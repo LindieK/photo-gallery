@@ -6,7 +6,7 @@ import {
   ResultsMsg,
 } from "../../styles/GridBoxStyles";
 import LazyImageCard from "../lazyimage/LazyImageCard";
-import icon from "../../image/search-results.svg";
+import icon from "../../assets/search-results.svg";
 
 class Grid extends Component {
   render() {
