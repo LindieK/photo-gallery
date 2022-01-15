@@ -12,6 +12,7 @@ const MainLayout = () => {
   return (
     <StyledMainLayout>
       <Nav />
+      {/* searchTerm={searchTerm} handleSearchTermChange={handleSearchTermChange}  handleFormSubmit={handleFormSubmit} */}
       <Outlet />
     </StyledMainLayout>
   );
