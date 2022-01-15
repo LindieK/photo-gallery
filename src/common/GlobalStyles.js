@@ -5,9 +5,11 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-size: 18px;
-        font-family: Open-Sans, Helvetica, Sans-Serif;
+        font-family: Open-Sans, Helvetica, Fira Sans, Segoe UI, Roboto, Sans-Serif;
         color: ${({ theme }) => theme.primaryText};
         background: ${({ theme }) => theme.body};
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     :root {
