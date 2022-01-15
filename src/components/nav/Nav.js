@@ -12,6 +12,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   top: 0;
+  box-shadow: 0px 4px 16px 0 rgba(196, 204, 221, 0.5);
   z-index: 2;
 `;
 
