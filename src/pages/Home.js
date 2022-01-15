@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Header from "../components/header/Header";
 import Categories from "../components/categories/Categories";
 import Grid from "../components/layout/Grid";
 import ImageModal from "../components/imagemodal/ImageModal";
@@ -112,12 +111,9 @@ class Home extends Component {
 
     return (
       <div className="App">
-        <Header
-          isTabActive={this.isTabActive}
+        <Categories
           setActiveTab={this.setActiveTab}
-          searchTerm={query}
-          //handleSearchTermChange={this.handleSearchTermChange}
-          handleFormSubmit={this.handleFormSubmit}
+          isTabActive={this.isTabActive}
         />
 
         {loadingState ? (
