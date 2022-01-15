@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import "../styles/App.css";
 import Header from "../components/header/Header";
 import Categories from "../components/categories/Categories";
 import Grid from "../components/layout/Grid";
