@@ -1,10 +1,11 @@
-import { Navigate, useRoutes } from "react-router";
+import { useRoutes } from "react-router";
 
-import Home from "../pages/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import MainLayout from "../layouts/MainLayout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import Home from "../pages/Home";
+import Landing from "../pages/Landing";
 import Profile from "../pages/Profile";
 
 const Router = () => {
@@ -15,7 +16,7 @@ const Router = () => {
       children: [
         { path: "login", element: <Login /> },
         { path: "signup", element: <SignUp /> },
-        { path: "/", element: <Navigate to="/login" /> },
+        { path: "/", element: <Landing /> },
       ],
     },
     {
