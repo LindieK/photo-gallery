@@ -1,7 +1,35 @@
 import React from "react";
+import styled from "styled-components";
 
-import "../../styles/categories.css";
+import breakpoint from "../../common/Breakpoints";
 import Tab from "../tab/Tab";
+
+const CategoryList = styled.ul`
+  list-style: none;
+  display: inline-flex;
+  width: 100vw;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+
+  @media only screen and ${breakpoint.device.md} {
+    justify-content: space-around;
+  }
+
+  li {
+    color: #6f788a;
+    padding: 1em;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+
+    @media only screen and ${breakpoint.device.md} {
+      padding: 1em 1.25em;
+    }
+  }
+`;
 
 const Categories = ({ setActiveTab, isTabActive }) => {
   const Tabs = [
@@ -15,7 +43,7 @@ const Categories = ({ setActiveTab, isTabActive }) => {
 
   return (
     <div>
-      <ul>
+      <CategoryList>
         {Tabs.map((tab) => (
           <Tab
             key={tab.id}
@@ -24,7 +52,7 @@ const Categories = ({ setActiveTab, isTabActive }) => {
             onTabClick={() => setActiveTab(tab.id, tab.title)}
           />
         ))}
-      </ul>
+      </CategoryList>
     </div>
   );
 };
