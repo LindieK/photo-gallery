@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Hero from "../components/hero/Hero";
 import Categories from "../components/categories/Categories";
 import Grid from "../components/layout/Grid";
 import ImageModal from "../components/imagemodal/ImageModal";
@@ -111,6 +112,7 @@ class Home extends Component {
 
     return (
       <div className="App">
+        <Hero />
         <Categories
           setActiveTab={this.setActiveTab}
           isTabActive={this.isTabActive}
