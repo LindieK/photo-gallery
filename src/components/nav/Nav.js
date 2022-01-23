@@ -6,13 +6,13 @@ import DropdownMenu from "../dropdownmenu/DropdownMenu";
 import breakpoint from "../../common/Breakpoints";
 
 const StyledNav = styled.nav`
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.background};
   position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
   top: 0;
-  box-shadow: 0px 4px 16px 0 rgba(196, 204, 221, 0.5);
+  box-shadow: 0px 4px 16px 0 ${({ theme }) => theme.background};
   z-index: 2;
 `;
 
@@ -33,7 +33,7 @@ const NavLogoText = styled.h3`
   font-weight: 800;
   font-size: 1.5em;
   padding-left: 0.75em;
-  color: var(--main-color);
+  color: ${({ theme }) => theme.primary};
 
   @media only screen and ${breakpoint.device.md} {
     padding-left: 1em;

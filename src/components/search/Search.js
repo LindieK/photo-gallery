@@ -21,17 +21,17 @@ const SearchIcon = styled.button`
   cursor: pointer;
 
   svg {
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.text38};
   }
 `;
 
 const StyledSearch = styled.input`
   padding: 0.75em 1em;
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.secondaryText};
+  border: 1px solid ${({ theme }) => theme.border};
   width: 80%;
   background: none;
-  color: ${({ theme }) => theme.primaryText};
+  color: ${({ theme }) => theme.text87};
 `;
 
 const Search = ({

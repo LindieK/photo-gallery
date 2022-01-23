@@ -6,8 +6,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-size: 18px;
         font-family: Open-Sans, Helvetica, Fira Sans, Segoe UI, Roboto, Sans-Serif;
-        color: ${({ theme }) => theme.primaryText};
-        background: ${({ theme }) => theme.body};
+        color: ${({ theme }) => theme.text87};
+        background: ${({ theme }) => theme.background};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }

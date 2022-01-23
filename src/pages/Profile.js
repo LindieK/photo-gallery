@@ -23,7 +23,7 @@ const CollectionSection = styled.div`
   width: 100%;
 
   .title {
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.text87};
     font-size: 1.5em;
     padding-left: 1em;
 
@@ -55,23 +55,23 @@ const GridContainer = styled.div`
 `;
 
 const ProfileAside = styled.div`
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.panel};
   text-align: center;
   padding: 2em 1em;
 
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 25%;
     border-radius: 10px;
-    box-shadow: 2px 4px 8px 0 rgb(186, 184, 217);
+    box-shadow: 2px 4px 8px 0 ${({ theme }) => theme.background};
     margin: 0.5em;
   }
 `;
 
 const UserInfo = styled.div`
-  color: ${({ theme }) => theme.primaryText};
+  color: ${({ theme }) => theme.text87};
 
   .description {
-    color: ${({ theme }) => theme.secondaryText};
+    color: ${({ theme }) => theme.text60};
     font-weight: 500;
   }
 `;

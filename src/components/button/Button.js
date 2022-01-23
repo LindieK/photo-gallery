@@ -5,9 +5,13 @@ import styled from "styled-components";
 import breakpoint from "../../common/Breakpoints";
 
 const StyledButton = styled.button`
-  color: ${(props) => (props.secondary ? "#504CCA" : "#EEEFF1")};
-  background-color: ${(props) => (props.secondary ? "transparent" : "#504CCA")};
-  border: 2px solid var(--main-color);
+  color: ${(props) =>
+    props.secondary
+      ? ({ theme }) => theme.primary
+      : ({ theme }) => theme.text87};
+  background-color: ${(props) =>
+    props.secondary ? "transparent" : ({ theme }) => theme.primary};
+  border: 2px solid ${({ theme }) => theme.primary};
   border-radius: 12px;
   padding: 1em 1.75em;
   margin: 1em 0;

@@ -13,7 +13,7 @@ const StyledInputContainer = styled.div`
 const StyledInputLabel = styled.label`
   font-weight: bold;
   font-size: 0.75em;
-  color: ${({ theme }) => theme.primaryText};
+  color: ${({ theme }) => theme.text87};
   margin-bottom: 0.5em;
 
   @media only screen and ${breakpoint.device.xlg} {
@@ -22,7 +22,7 @@ const StyledInputLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  border: 1px solid ${({ theme }) => theme.secondaryText};
+  border: 1px solid ${({ theme }) => theme.border};
   background-color: transparent;
   border-radius: 8px;
   padding: 0.75em;
@@ -31,11 +31,11 @@ const StyledInput = styled.input`
   &:focus {
     border: 2px solid #504cca;
     outline: none !important;
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.panel};
   }
 
   &::placeholder {
-    color: ${({ theme }) => theme.secondaryText};
+    color: ${({ theme }) => theme.text38};
   }
 
   @media only screen and ${breakpoint.device.xlg} {

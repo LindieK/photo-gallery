@@ -12,7 +12,7 @@ const OptionsPane = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${({ theme }) => theme.primaryText};
+  color: ${({ theme }) => theme.text87};
 `;
 
 const AuthorInfo = styled.div`

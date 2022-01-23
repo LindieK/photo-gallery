@@ -25,7 +25,7 @@ const MENU_OPTIONS = [
 ];
 
 const StyledDropdown = styled.div`
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.background};
   position: absolute;
   top: 90px;
   right: 0;

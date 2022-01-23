@@ -9,7 +9,7 @@ const StyledMenuItem = styled.div`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.text87};
     width: 100%;
   }
 `;

@@ -17,7 +17,7 @@ const Toggler = ({ ...props }) => {
       <Toggle {...props}>
         <FontAwesomeIcon
           icon={theme.modeIcon}
-          color={theme.primaryText}
+          color={theme.text87}
           className="fa-2x"
         />
       </Toggle>
