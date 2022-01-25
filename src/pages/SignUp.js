@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../components/button/Button";
 import Input from "../components/input/Input";
@@ -43,7 +44,7 @@ const SignUp = () => {
         <Button text="Sign Up" />
 
         <LoginText>
-          Already have an account? <a>Log In</a>
+          Already have an account? <Link to="/login">Log In</Link>
         </LoginText>
       </AuthenticationForm>
     </AuthenticationPageContainer>

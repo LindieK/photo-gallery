@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../components/button/Button";
 import Input from "../components/input/Input";
@@ -37,7 +38,7 @@ const Login = () => {
         <Button text="Log In" />
 
         <LoginText>
-          Don't have an account? <a>Sign Up</a>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
         </LoginText>
       </AuthenticationForm>
     </AuthenticationPageContainer>
