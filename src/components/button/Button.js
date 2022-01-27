@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   color: ${(props) =>
     props.secondary
       ? ({ theme }) => theme.primary
-      : ({ theme }) => theme.text87};
+      : ({ theme }) => theme.button};
   background-color: ${(props) =>
     props.secondary ? "transparent" : ({ theme }) => theme.primary};
   border: 2px solid ${({ theme }) => theme.primary};
@@ -16,7 +16,7 @@ const StyledButton = styled.button`
   padding: 1em 1.75em;
   margin: 1em 0;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: ${(props) => (props.size ? props.size : "0.8em")};
   cursor: pointer;
 
   @media only screen and ${breakpoint.device.xlg} {
@@ -25,9 +25,9 @@ const StyledButton = styled.button`
 `;
 //TODO: create default font size and font family
 
-const Button = ({ secondary, text, handleClick }) => {
+const Button = ({ secondary, size, text, handleClick }) => {
   return (
-    <StyledButton secondary={secondary} onClick={handleClick}>
+    <StyledButton secondary={secondary} onClick={handleClick} size={size}>
       {text}
     </StyledButton>
   );
