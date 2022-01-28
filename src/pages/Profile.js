@@ -62,7 +62,7 @@ const ProfileAside = styled.div`
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 25%;
     border-radius: 10px;
-    box-shadow: 2px 4px 4px 0 ${({ theme }) => theme.border};
+    box-shadow: 2px 4px 4px 0 ${({ theme }) => theme.shadow};
     margin: 0.5em;
   }
 `;
