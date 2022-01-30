@@ -4,30 +4,31 @@ import styled from "styled-components";
 import breakpoint from "../../common/Breakpoints";
 import Tab from "../tab/Tab";
 
-const CategoryList = styled.ul`
-  list-style: none;
-  display: inline-flex;
+const CategoryContainer = styled.div`
   width: 100vw;
-  padding: 0;
+  padding: 2em 0;
   overflow: auto;
   white-space: nowrap;
 
   @media only screen and ${breakpoint.device.md} {
-    justify-content: space-around;
+    width: 85vw;
+    margin: 0 auto;
+    padding: 3em 0;
   }
 
-  li {
-    color: #6f788a;
-    padding: 1em;
-    cursor: pointer;
+  @media only screen and ${breakpoint.device.lg} {
+    width: 70vw;
+  }
+`;
 
-    &:hover {
-      color: black;
-    }
+const CategoryList = styled.ul`
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  justify-content: space-around;
 
-    @media only screen and ${breakpoint.device.md} {
-      padding: 1em 1.25em;
-    }
+  @media only screen and ${breakpoint.device.md} {
+    width: 100%;
   }
 `;
 
@@ -42,7 +43,7 @@ const Categories = ({ setActiveTab, isTabActive }) => {
   ];
 
   return (
-    <div>
+    <CategoryContainer>
       <CategoryList>
         {Tabs.map((tab) => (
           <Tab
@@ -53,7 +54,7 @@ const Categories = ({ setActiveTab, isTabActive }) => {
           />
         ))}
       </CategoryList>
-    </div>
+    </CategoryContainer>
   );
 };
 
