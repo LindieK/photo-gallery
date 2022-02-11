@@ -12,7 +12,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 const MENU_OPTIONS = [
   {
     text: "Home",
-    linkTo: "/home",
+    linkTo: "/",
   },
   {
     text: "Profile",
