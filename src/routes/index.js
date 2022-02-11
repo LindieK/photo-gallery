@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
+import SearchResults from "../pages/SearchResults";
 
 const Router = () => {
   let element = useRoutes([
@@ -21,6 +22,7 @@ const Router = () => {
       children: [
         { path: "/", element: <Home /> },
         { path: "profile", element: <Profile /> },
+        { path: "search/:query", element: <SearchResults /> },
       ],
     },
   ]);
