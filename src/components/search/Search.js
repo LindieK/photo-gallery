@@ -7,6 +7,7 @@ import breakpoint from "../../common/Breakpoints";
 
 const StyledSearchForm = styled.form`
   display: flex;
+  justify-content: center;
 
   @media only screen and ${breakpoint.device.md} {
     width: 20em;
@@ -28,14 +29,17 @@ const SearchIcon = styled.button`
 const StyledSearch = styled.input`
   padding: 0.75em 1em;
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.border};
-  width: 80%;
-  background: none;
+  border: ${(props) =>
+    props.outline ? `1px solid ${({ theme }) => theme.border}` : "none"};
+  width: 100%;
+  background: ${(props) =>
+    props.outline ? "none" : ({ theme }) => theme.background};
   color: ${({ theme }) => theme.text87};
 `;
 
 const Search = ({
   searchTerm,
+  outline,
   /*handleSearchTermChange,*/ handleFormSubmit,
 }) => {
   const pattern = /[^\n ]+/;
@@ -45,6 +49,7 @@ const Search = ({
         type="text"
         placeholder="Search"
         value={searchTerm}
+        outline={outline}
         //onChange={handleSearchTermChange}
         pattern={pattern}
         title="Must be letters and/or numbers only"
