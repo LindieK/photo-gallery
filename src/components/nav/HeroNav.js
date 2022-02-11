@@ -52,6 +52,7 @@ const NavLogoText = styled.h3`
   font-weight: 800;
   font-size: 1.5em;
   padding-left: 0.75em;
+  margin: 0.75em 0;
   color: ${({ theme }) => theme.primary};
 
   @media only screen and ${breakpoint.device.md} {
