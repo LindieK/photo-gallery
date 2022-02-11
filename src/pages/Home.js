@@ -24,13 +24,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    getInitialPics().then((response) => {
-      console.log(response);
-      this.setState({
-        photos: response.data,
-        loadingState: false,
-      });
-    });
+    getInitialPics()
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          photos: response.data,
+          loadingState: false,
+        });
+      })
+      .catch((error) => console.error(error));
   }
 
   isTabActive = (id) => {
