@@ -6,7 +6,7 @@ import breakpoint from "../../common/Breakpoints";
 
 const loadingAnimation = keyframes`
     0%, 100%{
-        background-color: #fff;
+        background-color: ${({ theme }) => theme.background};
     }
     50%{
         background-color: #ccc;
@@ -18,10 +18,13 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 240px;
 
-  @media only screen and ${breakpoint.device.md} {
+  @media only screen and ${breakpoint.device.sm} {
     height: 300px;
   }
-  @media only screen and ${breakpoint.device.xlg} {
+  @media only screen and ${breakpoint.device.md} {
+    height: 350px;
+  }
+  @media only screen and ${breakpoint.device.lg} {
     height: 400px;
   }
 `;
@@ -32,15 +35,14 @@ const Placeholder = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 20px;
+  border-radius: 10px;
   animation: ${loadingAnimation} 5s cubic-bezier(0.4, 0, 1, 1) infinite;
 `;
 
 const StyledImage = styled.img.attrs((props) => ({
-  src: props.src,
-  //src: props.src.regular,
-  //srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
-  //alt: props.alt,
+  src: props.src.regular,
+  srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
+  alt: props.alt,
 }))`
   position: absolute;
   top: 0;
@@ -48,7 +50,7 @@ const StyledImage = styled.img.attrs((props) => ({
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
 `;
 
