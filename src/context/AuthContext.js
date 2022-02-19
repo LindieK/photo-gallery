@@ -1,5 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  updateEmail,
+  updatePassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+
+import { createUser } from "../util/dbQueries";
 
 const AuthContext = React.createContext();
 
@@ -7,24 +19,59 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-export default function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const auth = getAuth();
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
+  function signup(username, email, password) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        const user = response.user;
+        const token = user.getIdTokenResult();
+        if (token) {
+          sessionStorage.setItem("Auth Token", token);
+        }
+        const data = {
+          uid: user.uid,
+          username,
+          email,
+          password,
+          authProvider: "local",
+        };
+        createUser(data).then(() => {
+          console.log("User Created");
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
   }
 
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        const user = response.user;
+        const token = user.getIdTokenResult();
+        if (token) {
+          sessionStorage.setItem("Auth Token", token);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
   }
 
   function logout() {
-    return auth.signOut();
+    return signOut(auth);
   }
 
   function resetPassword(email) {
-    return auth.sendPasswordResetEmail(email);
+    return sendPasswordResetEmail(auth, email);
   }
 
   function updateEmail(email) {
@@ -36,13 +83,13 @@ export default function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsuscribe = auth.onAuthStateChanged((user) => {
+    const unsuscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false);
     });
 
     return unsuscribe;
-  }, []);
+  }, [auth]);
 
   const value = {
     currentUser,
@@ -58,4 +105,5 @@ export default function AuthProvider({ children }) {
       {!loading && children}
     </AuthContext.Provider>
   );
-}
+};
+export default AuthProvider;
