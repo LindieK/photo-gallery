@@ -38,7 +38,6 @@ const FormSection = styled.main`
 
   @media only screen and ${breakpoint.device.lg} {
     flex-basis: 45%;
-    padding: 4em;
     height: unset;
     align-items: unset;
   }
