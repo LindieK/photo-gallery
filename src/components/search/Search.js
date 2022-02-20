@@ -8,19 +8,6 @@ import breakpoint from "../../common/Breakpoints";
 const StyledSearchForm = styled.form`
   display: flex;
   justify-content: center;
-  width: 100%;
-
-  @media only screen and ${breakpoint.device.sm} {
-    width: 80%;
-  }
-
-  @media only screen and ${breakpoint.device.md} {
-    width: 60%;
-  }
-
-  @media only screen and ${breakpoint.device.lg} {
-    width: 40%;
-  }
 `;
 const SearchIcon = styled.button`
   position: relative;
