@@ -82,7 +82,11 @@ const Home = () => {
   return (
     <div className="App">
       {!currentUser && <Hero />}
-      <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />
+      <Categories
+        setActiveTab={setActiveTab}
+        isTabActive={isTabActive}
+        currentUser={currentUser}
+      />
 
       {loadingState ? (
         <Spinner />
