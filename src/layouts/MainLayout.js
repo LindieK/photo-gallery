@@ -15,7 +15,6 @@ const MainLayout = () => {
   return (
     <StyledMainLayout>
       {currentUser ? <DefaultNav /> : <HeroNav />}
-      {/* searchTerm={searchTerm} handleSearchTermChange={handleSearchTermChange}  handleFormSubmit={handleFormSubmit} */}
       <Outlet />
     </StyledMainLayout>
   );
