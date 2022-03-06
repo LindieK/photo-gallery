@@ -25,8 +25,10 @@ const SearchIcon = styled.button`
 const StyledSearch = styled.input`
   padding: 1.25em;
   border-radius: 5px;
-  border: ${(props) =>
-    props.outline ? `1px solid ${({ theme }) => theme.border}` : "none"};
+  border-width: ${(props) => (props.outline ? "1px" : "unset")};
+  border-style: ${(props) => (props.outline ? "solid" : "unset")};
+  border-color: ${(props) =>
+    props.outline ? ({ theme }) => theme.border : "unset"};
   width: 100%;
   background: ${(props) =>
     props.outline ? "none" : ({ theme }) => theme.background};
