@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import breakpoint from "../../common/Breakpoints";
+import { ErrorMessage } from "../../common/CommonStyles";
 
 const StyledInputContainer = styled.div`
   margin: 1em 0;
@@ -22,7 +23,11 @@ const StyledInputLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  border: 1px solid ${({ theme }) => theme.border};
+  border: 1px solid
+    ${(props) =>
+      props.hasError
+        ? ({ theme }) => theme.error
+        : ({ theme }) => theme.border};
   background-color: transparent;
   border-radius: 8px;
   padding: 0.75em;
@@ -48,9 +53,19 @@ const StyledInput = styled.input`
     }
   }
 `;
+
 //TODO: create different component specifically for type= file
 
-const Input = ({ name, label, type, placeholderText, handleChange }) => {
+const Input = ({
+  name,
+  label,
+  type,
+  error,
+  hasError,
+  placeholderText,
+  handleChange,
+  handleBlur,
+}) => {
   return (
     <StyledInputContainer>
       <StyledInputLabel>{label}</StyledInputLabel>
@@ -59,7 +74,10 @@ const Input = ({ name, label, type, placeholderText, handleChange }) => {
         type={type}
         placeholder={placeholderText}
         onChange={handleChange}
+        onBlur={handleBlur}
+        hasError={hasError}
       />
+      {hasError && <ErrorMessage>{error}</ErrorMessage>}
     </StyledInputContainer>
   );
 };
@@ -70,4 +88,5 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
 };
