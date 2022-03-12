@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import Hero from "../components/hero/Hero";
 import Categories from "../components/categories/Categories";
@@ -6,8 +7,27 @@ import Grid from "../components/layout/Grid";
 import ImageModal from "../components/imagemodal/ImageModal";
 import InfoModal from "../components/infomodal/InfoModal";
 import Spinner from "../components/spinner/Spinner";
+import breakpoint from "../common/Breakpoints";
 import { useAuth } from "../context/AuthContext";
 import { getInitialPics, getSearchResults, getCategoryPics } from "../Api";
+
+const CategoryContainer = styled.div`
+  width: 100vw;
+  position: relative;
+  overflow: auto;
+  white-space: nowrap;
+  padding: ${(props) => (props.currentUser ? "5em 0 2em 0" : "2em 0")};
+
+  @media only screen and ${breakpoint.device.md} {
+    width: 85vw;
+    margin: 0 auto;
+    padding: ${(props) => (props.currentUser ? "4em 0 3em 0" : "3em 0")};
+    top: ${(props) => (props.currentUser ? "3em" : "unset")};
+  }
+  @media only screen and ${breakpoint.device.lg} {
+    width: 70vw;
+  }
+`;
 
 const Home = () => {
   const [loadingState, setLoadingState] = useState(true);
@@ -82,11 +102,9 @@ const Home = () => {
   return (
     <div className="App">
       {!currentUser && <Hero />}
-      <Categories
-        setActiveTab={setActiveTab}
-        isTabActive={isTabActive}
-        currentUser={currentUser}
-      />
+      <CategoryContainer currentUser={currentUser}>
+        <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />
+      </CategoryContainer>
 
       {loadingState ? (
         <Spinner />
