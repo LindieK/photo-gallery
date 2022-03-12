@@ -29,10 +29,12 @@ const AuthProvider = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
         const user = response.user;
-        const token = user.getIdTokenResult();
-        if (token) {
-          sessionStorage.setItem("Auth Token", token);
-        }
+        user.getIdTokenResult().then((response) => {
+          const token = response.token;
+          if (token) {
+            sessionStorage.setItem("Auth Token", token);
+          }
+        });
         const data = {
           uid: user.uid,
           username,
@@ -55,11 +57,16 @@ const AuthProvider = ({ children }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         const user = response.user;
-        const token = user.getIdTokenResult();
-        if (token) {
-          sessionStorage.setItem("Auth Token", token);
-        }
+        user.getIdTokenResult().then((response) => {
+          const token = response.token;
+          if (token) {
+            sessionStorage.setItem("Auth Token", token);
+            console.log("User Logged In");
+            navigate("/");
+          }
+        });
       })
+
       .catch((error) => {
         console.error(error);
         alert(error.message);
