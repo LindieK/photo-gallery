@@ -123,7 +123,7 @@ const SignUp = () => {
         setEmail({ ...email, value: value });
         break;
       case "password":
-        setPassword(value);
+        setPassword({ ...password, value: value });
         break;
       default:
         break;
