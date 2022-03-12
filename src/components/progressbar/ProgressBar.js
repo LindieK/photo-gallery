@@ -19,6 +19,8 @@ const Filler = styled.div`
   width: ${(props) => props.completed};
   background-color: ${(props) => props.bgcolor};
   border-radius: inherit;
+  transition: 0.4s linear;
+  transition-property: width, background-color;
 `;
 const IndicatorText = styled.p`
   font-size: 0.75em;
