@@ -9,7 +9,11 @@ import InfoModal from "../components/infomodal/InfoModal";
 import Spinner from "../components/spinner/Spinner";
 import breakpoint from "../common/Breakpoints";
 import { useAuth } from "../context/AuthContext";
-import { getInitialPics, getSearchResults, getCategoryPics } from "../Api";
+import {
+  getInitialPics,
+  //getSearchResults,
+  getCategoryPics,
+} from "../Api";
 
 const CategoryContainer = styled.div`
   width: 100vw;
