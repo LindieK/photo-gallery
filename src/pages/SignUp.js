@@ -45,7 +45,6 @@ const SignUp = () => {
       });
       setUsername({ ...username, hasError: true });
     } else if (usernameLengthRegEx.test(value)) {
-      console.log("Length", usernameLengthRegEx.test(value));
       setError({
         ...error,
         username: "A username can't be longer than 15 characters",
@@ -200,7 +199,14 @@ const SignUp = () => {
         <Button
           text="Sign Up"
           handleClick={handleSubmit}
-          disabled={username.hasError || email.hasError || password.hasError}
+          disabled={
+            username.hasError ||
+            email.hasError ||
+            password.hasError ||
+            !email.value ||
+            !password.value ||
+            !username.value
+          }
         />
 
         <LoginText>
