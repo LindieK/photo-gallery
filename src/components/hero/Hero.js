@@ -49,6 +49,22 @@ const HeroTextSection = styled.div`
   }
 `;
 
+const SearchContainer = styled.div`
+  width: 100%;
+
+  @media only screen and ${breakpoint.device.sm} {
+    width: 80%;
+  }
+
+  @media only screen and ${breakpoint.device.md} {
+    width: 60%;
+  }
+
+  @media only screen and ${breakpoint.device.lg} {
+    width: 40%;
+  }
+`;
+
 const Hero = (props) => {
   const { searchTerm, /*handleSearchTermChange,*/ handleFormSubmit } = props;
 
@@ -61,11 +77,13 @@ const Hero = (props) => {
           one place.
         </p>
       </HeroTextSection>
-      <Search
-        searchTerm={searchTerm}
-        //handleSearchTermChange={handleSearchTermChange}
-        handleFormSubmit={handleFormSubmit}
-      />
+      <SearchContainer>
+        <Search
+          searchTerm={searchTerm}
+          //handleSearchTermChange={handleSearchTermChange}
+          handleFormSubmit={handleFormSubmit}
+        />
+      </SearchContainer>
     </StyledHero>
   );
 };

@@ -3,24 +3,11 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import breakpoint from "../../common/Breakpoints";
+//import breakpoint from "../../common/Breakpoints";
 
 const StyledSearchForm = styled.form`
   display: flex;
   justify-content: center;
-  width: 100%;
-
-  @media only screen and ${breakpoint.device.sm} {
-    width: 80%;
-  }
-
-  @media only screen and ${breakpoint.device.md} {
-    width: 60%;
-  }
-
-  @media only screen and ${breakpoint.device.lg} {
-    width: 40%;
-  }
 `;
 const SearchIcon = styled.button`
   position: relative;
@@ -38,8 +25,10 @@ const SearchIcon = styled.button`
 const StyledSearch = styled.input`
   padding: 1.25em;
   border-radius: 5px;
-  border: ${(props) =>
-    props.outline ? `1px solid ${({ theme }) => theme.border}` : "none"};
+  border-width: ${(props) => (props.outline ? "1px" : "unset")};
+  border-style: ${(props) => (props.outline ? "solid" : "unset")};
+  border-color: ${(props) =>
+    props.outline ? ({ theme }) => theme.border : "unset"};
   width: 100%;
   background: ${(props) =>
     props.outline ? "none" : ({ theme }) => theme.background};

@@ -25,9 +25,14 @@ const StyledButton = styled.button`
 `;
 //TODO: create default font size and font family
 
-const Button = ({ secondary, size, text, handleClick }) => {
+const Button = ({ secondary, size, text, disabled, handleClick }) => {
   return (
-    <StyledButton secondary={secondary} onClick={handleClick} size={size}>
+    <StyledButton
+      secondary={secondary}
+      onClick={handleClick}
+      size={size}
+      disabled={disabled}
+    >
       {text}
     </StyledButton>
   );

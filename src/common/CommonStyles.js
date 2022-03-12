@@ -110,6 +110,12 @@ export const LoginText = styled(SupportText)`
   }
 `;
 
+export const ErrorMessage = styled.p`
+  font-size: 0.75em;
+  color: ${({ theme }) => theme.error};
+  margin: 0.5em 0;
+`;
+
 /**
  * Modal Components
  */

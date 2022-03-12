@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import breakpoint from "../../common/Breakpoints";
+import ProgressBar from "../progressbar/ProgressBar";
 import { ErrorMessage } from "../../common/CommonStyles";
+import breakpoint from "../../common/Breakpoints";
 
-const StyledInputContainer = styled.div`
+const StyledPasswordInputContainer = styled.div`
   margin: 1em 0;
   display: flex;
   flex-direction: column;
 `;
 
-const StyledInputLabel = styled.label`
+const StyledPasswordInputLabel = styled.label`
   font-weight: bold;
   font-size: 0.75em;
   color: ${({ theme }) => theme.text87};
@@ -22,7 +23,7 @@ const StyledInputLabel = styled.label`
   }
 `;
 
-const StyledInput = styled.input`
+const StyledPasswordInput = styled.input`
   border: 1px solid
     ${(props) =>
       props.hasError
@@ -56,36 +57,53 @@ const StyledInput = styled.input`
 
 //TODO: create different component specifically for type= file
 
-const Input = ({
+const PasswordInput = ({
   name,
   label,
-  type,
+  placeholderText,
   error,
   hasError,
-  placeholderText,
+  passwordStrength,
   handleChange,
   handleBlur,
 }) => {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (passwordStrength === "100") {
+      setMessage("Okay!");
+    } else if (passwordStrength === "60") {
+      setMessage("Getting Warm");
+    } else if (passwordStrength === "30") {
+      setMessage("Too Easy!");
+    }
+  }, [passwordStrength]);
   return (
-    <StyledInputContainer>
-      <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledInput
+    <StyledPasswordInputContainer>
+      <StyledPasswordInputLabel>{label}</StyledPasswordInputLabel>
+      <StyledPasswordInput
         name={name}
-        type={type}
+        type="password"
         placeholder={placeholderText}
         onChange={handleChange}
         onBlur={handleBlur}
         hasError={hasError}
       />
-      {hasError && <ErrorMessage>{error}</ErrorMessage>}
-    </StyledInputContainer>
+      {hasError ? (
+        <ErrorMessage>{error}</ErrorMessage>
+      ) : (
+        passwordStrength && (
+          <ProgressBar indicator={passwordStrength} message={message} />
+        )
+      )}
+    </StyledPasswordInputContainer>
   );
 };
-export default Input;
-Input.propTypes = {
+export default PasswordInput;
+PasswordInput.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  passwordStrength: PropTypes.string,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
