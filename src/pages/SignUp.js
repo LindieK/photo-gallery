@@ -150,7 +150,6 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await signup(username.value, email.value, password.value);
   };
 
@@ -198,7 +197,11 @@ const SignUp = () => {
           handleChange={handleChange}
           handleBlur={handleBlur}
         />
-        <Button text="Sign Up" handleClick={handleSubmit} />
+        <Button
+          text="Sign Up"
+          handleClick={handleSubmit}
+          disabled={username.hasError || email.hasError || password.hasError}
+        />
 
         <LoginText>
           Already have an account? <Link to="/login">Log In</Link>
