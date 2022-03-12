@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import breakpoint from "../../common/Breakpoints";
+//import breakpoint from "../../common/Breakpoints";
 
 const StyledSearchForm = styled.form`
   display: flex;

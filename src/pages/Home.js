@@ -33,7 +33,7 @@ const Home = () => {
   const [loadingState, setLoadingState] = useState(true);
   const [selectedTab, setSelectedTab] = useState(1);
   const [photos, setPhotos] = useState([]);
-  const [query, setQuery] = useState("");
+  //const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalPhoto, setModalPhoto] = useState({});
   const [showPhotoInfo, setShowPhotoInfo] = useState(false);
@@ -71,14 +71,14 @@ const Home = () => {
     });
   };*/
 
-  const handleFormSubmit = (event) => {
-    let searchQuery = query;
-    event.preventDefault();
-    getSearchResults(searchQuery).then((response) => {
-      console.log(response);
-      setPhotos(response.data.results);
-    });
-  };
+  // const handleFormSubmit = (event) => {
+  //   let searchQuery = query;
+  //   event.preventDefault();
+  //   getSearchResults(searchQuery).then((response) => {
+  //     console.log(response);
+  //     setPhotos(response.data.results);
+  //   });
+  // };
 
   const handleShowImageInfo = (photo) => {
     setShowModal(true);
@@ -111,7 +111,7 @@ const Home = () => {
       ) : (
         <Grid
           photos={photos}
-          query={query}
+          //query={query}
           displayModal={handleShowImageInfo}
         />
       )}
