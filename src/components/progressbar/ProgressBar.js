@@ -43,7 +43,7 @@ const ProgressBar = ({ indicator, message }) => {
       setCompleted("30%");
       setBgColor(theme.error);
     }
-  }, [indicator]);
+  }, [indicator, theme.error, theme.success, theme.warning]);
 
   return (
     <StyledContainer>
