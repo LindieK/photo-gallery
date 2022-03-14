@@ -34,6 +34,7 @@ const StyledDropdown = styled.div`
   border-radius: 5px;
   opacity: 0;
   visibility: hidden;
+  box-shadow: 0px 4px 16px 0 ${({ theme }) => theme.shadow};
   transform: translateY(-20px);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 
