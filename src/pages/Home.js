@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import styled from "styled-components";
 
 import Hero from "../components/hero/Hero";
 import Categories from "../components/categories/Categories";
-import Grid from "../components/layout/Grid";
 import ImageModal from "../components/imagemodal/ImageModal";
 import InfoModal from "../components/infomodal/InfoModal";
 import Spinner from "../components/spinner/Spinner";
@@ -14,6 +13,8 @@ import {
   //getSearchResults,
   getCategoryPics,
 } from "../Api";
+
+const Grid = lazy(() => import("../components/layout/Grid"));
 
 const CategoryContainer = styled.div`
   width: 100vw;
@@ -33,24 +34,19 @@ const CategoryContainer = styled.div`
   }
 `;
 
+const initialPics = getInitialPics()
+  .then((response) => response.data)
+  .catch((error) => console.error(error));
+
 const Home = () => {
-  const [loadingState, setLoadingState] = useState(true);
+  //const [loadingState, setLoadingState] = useState(true);
   const [selectedTab, setSelectedTab] = useState(1);
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState(initialPics);
   //const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalPhoto, setModalPhoto] = useState({});
   const [showPhotoInfo, setShowPhotoInfo] = useState(false);
   const { currentUser } = useAuth();
-
-  useEffect(() => {
-    getInitialPics()
-      .then((response) => {
-        setPhotos(response.data);
-        setLoadingState(false);
-      })
-      .catch((error) => console.error(error));
-  });
 
   const isTabActive = (id) => {
     return selectedTab === id;
@@ -60,7 +56,6 @@ const Home = () => {
     selectedTabId === 1
       ? getInitialPics().then((response) => {
           setPhotos(response.data);
-          setLoadingState(false);
         })
       : getCategoryPics(selectedTabName).then((response) => {
           setPhotos(response.data);
@@ -109,16 +104,13 @@ const Home = () => {
       <CategoryContainer currentUser={currentUser}>
         <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />
       </CategoryContainer>
-
-      {loadingState ? (
-        <Spinner />
-      ) : (
+      <Suspense fallback={<Spinner />}>
         <Grid
           photos={photos}
           //query={query}
           displayModal={handleShowImageInfo}
         />
-      )}
+      </Suspense>
       {showModal ? (
         <ImageModal
           image={modalPhoto}
