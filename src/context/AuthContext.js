@@ -74,7 +74,10 @@ const AuthProvider = ({ children }) => {
   }
 
   function logout() {
-    return signOut(auth);
+    signOut(auth).then(() => {
+      sessionStorage.removeItem("Auth Token");
+      console.log(currentUser);
+    });
   }
 
   function resetPassword(email) {
