@@ -31,7 +31,7 @@ const StyledSearch = styled.input`
     props.outline ? ({ theme }) => theme.border : "unset"};
   width: 100%;
   background: ${(props) =>
-    props.outline ? "none" : ({ theme }) => theme.background};
+    props.outline ? "none" : ({ theme }) => theme.button};
   color: ${({ theme }) => theme.text87};
 `;
 
