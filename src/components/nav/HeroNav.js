@@ -41,10 +41,7 @@ const NavItems = styled.div`
 
   span a {
     text-decoration: none;
-    color: ${(props) =>
-      props.navStatus
-        ? ({ theme }) => theme.text87
-        : ({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.primary};
   }
 `;
 
