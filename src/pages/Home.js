@@ -121,7 +121,6 @@ const Home = () => {
       <CategoryContainer currentUser={currentUser}>
         <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />
       </CategoryContainer>
-      {/* <ErrorBoundary></ErrorBoundary> */}
       {loadingState && <Spinner />}
       {error && <FetchErrorMessage>{error}</FetchErrorMessage>}
       {photos && (
