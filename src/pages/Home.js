@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Hero from "../components/hero/Hero";
-import Categories from "../components/categories/Categories";
 import Grid from "../components/layout/Grid";
+import Categories from "../components/categories/Categories";
 import ImageModal from "../components/imagemodal/ImageModal";
 import InfoModal from "../components/infomodal/InfoModal";
 import Spinner from "../components/spinner/Spinner";
 import breakpoint from "../common/Breakpoints";
+import { FetchErrorMessage } from "../common/CommonStyles";
 import { useAuth } from "../context/AuthContext";
 import {
   getInitialPics,
@@ -36,7 +37,8 @@ const CategoryContainer = styled.div`
 const Home = () => {
   const [loadingState, setLoadingState] = useState(true);
   const [selectedTab, setSelectedTab] = useState(1);
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState(null);
+  const [error, setError] = useState(null);
   //const [query, setQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalPhoto, setModalPhoto] = useState({});
@@ -47,10 +49,21 @@ const Home = () => {
     getInitialPics()
       .then((response) => {
         setPhotos(response.data);
-        setLoadingState(false);
+        setError(null);
       })
-      .catch((error) => console.error(error));
-  });
+      .catch((error) => {
+        console.error(error);
+        if (error.response.status === 403) {
+          setError(
+            "Sorry. The limit to request for photos has been reached at this time."
+          );
+        } else {
+          setError("Oops! There was an error in getting photos.");
+        }
+        setPhotos(null);
+      })
+      .finally(() => setLoadingState(false));
+  }, []);
 
   const isTabActive = (id) => {
     return selectedTab === id;
@@ -60,7 +73,6 @@ const Home = () => {
     selectedTabId === 1
       ? getInitialPics().then((response) => {
           setPhotos(response.data);
-          setLoadingState(false);
         })
       : getCategoryPics(selectedTabName).then((response) => {
           setPhotos(response.data);
@@ -109,26 +121,26 @@ const Home = () => {
       <CategoryContainer currentUser={currentUser}>
         <Categories setActiveTab={setActiveTab} isTabActive={isTabActive} />
       </CategoryContainer>
-
-      {loadingState ? (
-        <Spinner />
-      ) : (
+      {/* <ErrorBoundary></ErrorBoundary> */}
+      {loadingState && <Spinner />}
+      {error && <FetchErrorMessage>{error}</FetchErrorMessage>}
+      {photos && (
         <Grid
           photos={photos}
           //query={query}
           displayModal={handleShowImageInfo}
         />
       )}
-      {showModal ? (
+      {showModal && (
         <ImageModal
           image={modalPhoto}
           displayImageInfo={handleShowInfoModal}
           onClose={handleImageModalClose}
         />
-      ) : null}
-      {showPhotoInfo ? (
+      )}
+      {showPhotoInfo && (
         <InfoModal imageInfo={modalPhoto} onClose={handleInfoModalClose} />
-      ) : null}
+      )}
     </div>
   );
 };
