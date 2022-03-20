@@ -54,6 +54,7 @@ const DefaultNav = (props) => {
       <NavItems>
         <Search
           searchTerm={searchTerm}
+          outline={true}
           //handleSearchTermChange={handleSearchTermChange}
           handleFormSubmit={handleFormSubmit}
         />

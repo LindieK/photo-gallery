@@ -4,10 +4,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import defaultPic from "../../assets/profile.png";
+import Button from "../button/Button";
 import MenuItem from "../menuitem/MenuItem";
 import Toggler from "../toggler/Toggler";
 import { useDetectOutsideClick } from "../../helpers/useDetectOutsideClick";
 import { ThemeContext } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
 
 const MENU_OPTIONS = [
   {
@@ -34,6 +36,7 @@ const StyledDropdown = styled.div`
   border-radius: 5px;
   opacity: 0;
   visibility: hidden;
+  box-shadow: 0px 4px 16px 0 ${({ theme }) => theme.shadow};
   transform: translateY(-20px);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 
@@ -54,11 +57,15 @@ const DropdownMenu = () => {
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useDetectOutsideClick(dropdownRef, false);
   const { toggleTheme } = useContext(ThemeContext);
+  const { currentUser, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLogOut = async () => {
+    await logout();
+  };
   return (
     <>
       <AvatarButton onClick={toggleMenu}>
@@ -75,7 +82,7 @@ const DropdownMenu = () => {
         ref={dropdownRef}
         className={isOpen ? "active" : "inactive"}
       >
-        <MenuItem>@lindaokorie</MenuItem>
+        <MenuItem>{currentUser?.displayName || currentUser?.email}</MenuItem>
         <hr />
         {MENU_OPTIONS.map((item) => (
           <MenuItem>
@@ -87,7 +94,9 @@ const DropdownMenu = () => {
           <p>Night Mode</p>
           <Toggler onClick={toggleTheme} />
         </MenuItem>
-        <MenuItem>Log Out</MenuItem>
+        <MenuItem>
+          <Button text="Log Out" handleClick={handleLogOut} />
+        </MenuItem>
       </StyledDropdown>
     </>
   );

@@ -25,6 +25,7 @@ const StyledHero = styled.div`
 
 const HeroTextSection = styled.div`
   text-align: center;
+  color: rgba(0, 0, 0, 0.87);
 
   h1 {
     font-size: 1.5em;
