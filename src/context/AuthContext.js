@@ -15,9 +15,9 @@ import { createUser } from "../util/dbQueries";
 
 const AuthContext = React.createContext();
 
-export function useAuth() {
+export const useAuth = () => {
   return useContext(AuthContext);
-}
+};
 
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const auth = getAuth();
 
-  function signup(username, email, password) {
+  const signup = (username, email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
         const user = response.user;
@@ -51,9 +51,9 @@ const AuthProvider = ({ children }) => {
         console.error(error);
         alert(error.message);
       });
-  }
+  };
 
-  function login(email, password) {
+  const login = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
         const user = response.user;
@@ -71,26 +71,26 @@ const AuthProvider = ({ children }) => {
         console.error(error);
         alert(error.message);
       });
-  }
+  };
 
-  function logout() {
+  const logout = () => {
     signOut(auth).then(() => {
       sessionStorage.removeItem("Auth Token");
       console.log(currentUser);
     });
-  }
+  };
 
-  function resetPassword(email) {
+  const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
-  }
+  };
 
-  function updateEmail(email) {
+  const updateEmail = (email) => {
     return currentUser.updateEmail(email);
-  }
+  };
 
-  function updatePassword(password) {
+  const updatePassword = (password) => {
     return currentUser.updatePassword(password);
-  }
+  };
 
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, (user) => {
