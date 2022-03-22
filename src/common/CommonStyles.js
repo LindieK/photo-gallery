@@ -11,7 +11,7 @@ export const SecondaryLink = styled.a`
   padding: 0.5em 0.6em;
   margin: 0 0.25em;
   border-radius: 5px;
-  border: 1.5px solid #d1d1d1;
+  border: 1.5px solid ${({ theme }) => theme.border};
   cursor: pointer;
 
   & > span {
@@ -140,6 +140,6 @@ export const ModalOverlay = styled.div`
 
 export const ModalWrapper = styled.div`
   position: relative;
-  background-color: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.background};
   border-radius: 10px;
 `;
