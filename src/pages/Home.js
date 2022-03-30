@@ -5,7 +5,7 @@ import Hero from "../components/hero/Hero";
 import Grid from "../components/layout/Grid";
 import Categories from "../components/categories/Categories";
 import ImageModal from "../components/imagemodal/ImageModal";
-import InfoModal from "../components/infomodal/InfoModal";
+import InfoModal from "../components/modals/InfoModal";
 import Spinner from "../components/spinner/Spinner";
 import breakpoint from "../common/Breakpoints";
 import { FetchErrorMessage } from "../common/CommonStyles";
@@ -33,6 +33,7 @@ const CategoryContainer = styled.div`
     width: 70vw;
   }
 `;
+const photoCache = {};
 
 const Home = () => {
   const [loadingState, setLoadingState] = useState(true);
@@ -50,6 +51,10 @@ const Home = () => {
       .then((response) => {
         setPhotos(response.data);
         setError(null);
+
+        if (!photoCache["For You"]) {
+          photoCache["For You"] = response.data;
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -71,12 +76,17 @@ const Home = () => {
 
   const setActiveTab = (selectedTabId, selectedTabName) => {
     selectedTabId === 1
-      ? getInitialPics().then((response) => {
+      ? !photoCache[selectedTabName]
+        ? getInitialPics().then((response) => {
+            setPhotos(response.data);
+          })
+        : setPhotos(photoCache[selectedTabName])
+      : !photoCache[selectedTabName]
+      ? getCategoryPics(selectedTabName).then((response) => {
           setPhotos(response.data);
+          photoCache[selectedTabName] = response.data;
         })
-      : getCategoryPics(selectedTabName).then((response) => {
-          setPhotos(response.data);
-        });
+      : setPhotos(photoCache[selectedTabName]);
 
     setSelectedTab(selectedTabId);
   };
