@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Outlet } from "react-router";
 
 import breakpoint from "../common/Breakpoints";
-import coverImage from "../assets/Sunset_Waterfall_Landscape_Illustration.jpg";
+import coverImage from "../assets/Sunset_Waterfall_Landscape_Illustration.webp";
 
 const StyledLayout = styled.div`
   display: flex;

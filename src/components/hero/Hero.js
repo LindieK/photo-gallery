@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import breakpoint from "../../common/Breakpoints";
-import HeroPic from "../../assets/mountains-kai-oberhauser.jpg";
+import HeroPic from "../../assets/mountains-kai-oberhauser.webp";
 import Search from "../search/Search";
 
 const StyledHero = styled.div`
