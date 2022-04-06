@@ -168,7 +168,7 @@ const SignUp = () => {
           label="Username*"
           type="text"
           placeholderText="Username"
-          value={username}
+          value={username.value}
           error={error.username}
           hasError={username.hasError}
           handleChange={handleChange}
@@ -179,7 +179,7 @@ const SignUp = () => {
           label="E-mail*"
           type="email"
           placeholderText="E-mail"
-          value={email}
+          value={email.value}
           error={error.email}
           hasError={email.hasError}
           handleChange={handleChange}
