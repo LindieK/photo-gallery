@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import SearchResults from "../pages/SearchResults";
+import ResetPassword from "../pages/ResetPassword";
 
 const Router = () => {
   let element = useRoutes([
@@ -15,6 +16,7 @@ const Router = () => {
       children: [
         { path: "login", element: <Login /> },
         { path: "signup", element: <SignUp /> },
+        { path: "resetpassword", element: <ResetPassword /> },
       ],
     },
     {
