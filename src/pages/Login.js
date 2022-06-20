@@ -9,6 +9,7 @@ import {
   AuthenticationForm,
   AuthenticationPageContainer,
   HeaderTextContainer,
+  ResetPassword,
   LoginText,
 } from "../common/CommonStyles";
 
@@ -130,6 +131,10 @@ const Login = () => {
           handleChange={handleChange}
           handleBlur={checkFields}
         />
+        <ResetPassword>
+          <Link to="/resetpassword">Forgot Password?</Link>
+        </ResetPassword>
+
         <Button
           text="Log In"
           handleClick={handleSubmit}

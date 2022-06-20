@@ -102,6 +102,20 @@ export const SupportText = styled.p`
   color: ${({ theme }) => theme.text60};
 `;
 
+export const ResetPassword = styled(SupportText)`
+  text-align: right;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  margin-bottom: 1.5em;
+
+  a {
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+    text-decoration: none;
+  }
+`;
+
 export const LoginText = styled(SupportText)`
   text-align: center;
   margin-top: 1em;
