@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import breakpoint from "../../common/Breakpoints";
 
@@ -22,17 +24,31 @@ const ModalWrapper = styled.div`
   background-color: ${({ theme }) => theme.background};
   border-radius: 10px;
   padding: 1em;
-  min-width: 50vw;
+  min-width: 80vw;
 
+  @media only screen and (${breakpoint.device.sm}) {
+    min-width: 50vw;
+  }
   @media only screen and (${breakpoint.device.md}) {
     min-width: 30vw;
   }
 `;
 
+const CloseAction = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  color: ${({ theme }) => theme.text60};
+`;
+
 const Modal = ({ isInfo, handleClick, children }) => {
   return (
-    <ModalOverlay isInfo={isInfo} onClick={handleClick}>
-      <ModalWrapper>{children}</ModalWrapper>
+    <ModalOverlay isInfo={isInfo} onClick={isInfo && handleClick}>
+      <ModalWrapper>
+        <CloseAction>
+          <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
+        </CloseAction>
+        {children}
+      </ModalWrapper>
     </ModalOverlay>
   );
 };

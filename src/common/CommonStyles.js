@@ -37,6 +37,17 @@ export const FetchErrorMessage = styled.p`
   text-align: center;
   margin: 0.5em auto;
 `;
+
+export const UnsplashImage = styled.img.attrs((props) => ({
+  src: props.src.regular,
+  srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
+  alt: props.alt,
+}))`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
 /**
  * Auth Pages
  */
