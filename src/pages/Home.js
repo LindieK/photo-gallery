@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Hero from "../components/hero/Hero";
 import Grid from "../components/layout/Grid";
 import Categories from "../components/categories/Categories";
-import ImageModal from "../components/imagemodal/ImageModal";
+import ImageModal from "../components/modals/ImageModal";
 import InfoModal from "../components/modals/InfoModal";
 import Spinner from "../components/spinner/Spinner";
 import breakpoint from "../common/Breakpoints";
