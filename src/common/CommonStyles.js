@@ -31,6 +31,16 @@ export const SecondaryLink = styled.a`
   }
 `; //Change colour codes
 
+export const UnsplashImage = styled.img.attrs((props) => ({
+  src: props.src.regular,
+  srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
+  alt: props.alt,
+}))`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
 export const FetchErrorMessage = styled.p`
   width: 90vw;
   font-size: 1.25em;
