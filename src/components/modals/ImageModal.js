@@ -2,18 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Avatar from "react-avatar";
+import { saveAs } from "file-saver";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark as faBookmarkRegular } from "@fortawesome/free-regular-svg-icons";
 import {
   faDownload,
   faInfoCircle,
   faBookmark as faBookmarkSolid,
 } from "@fortawesome/free-solid-svg-icons";
-import { faBookmark as faBookmarkRegular } from "@fortawesome/free-regular-svg-icons";
 
 import Modal from "./Modal";
 import breakpoint from "../../common/Breakpoints";
 import { SecondaryLink, UnsplashImage } from "../../common/CommonStyles";
 import defaultPic from "../../assets/profile.png";
+import { trackDownload } from "../../Api";
 
 const Header = styled.div`
   display: flex;
@@ -58,6 +60,34 @@ const ImageActions = styled.div`
   }
 `;
 
+const BookmarkButton = styled.button`
+  background-color: transparent;
+  color: ${({ theme }) => theme.primary};
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1.5px solid ${({ theme }) => theme.primary};
+  padding: 0.5em 0.6em;
+  margin: 0 0.25em;
+  font-size: 0.9em;
+`;
+
+const DownloadButton = styled.button`
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.button};
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid ${({ theme }) => theme.primary};
+  padding: 0.5em 0.6em;
+  margin: 0 0.25em;
+  font-size: 0.9em;
+
+  &:active {
+    background-color: ${({ theme }) => theme.button};
+    border: 2px solid ${({ theme }) => theme.button};
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
 const ImageWrapper = styled.div`
   position: relative;
   margin: 0 auto;
@@ -85,6 +115,13 @@ const ExtraInfo = styled.div`
 `;
 
 const ImageModal = ({ isBookmarked, image, displayImageInfo, onClose }) => {
+  const handleDownload = (downloadPath) => {
+    trackDownload(downloadPath).then((response) => {
+      response.data.url &&
+        saveAs(response.data.url, `${image.user.username}_${image.user.id}`);
+    });
+  };
+
   return ReactDOM.createPortal(
     <Modal isInfo={false} handleClick={onClose}>
       <Header>
@@ -109,15 +146,17 @@ const ImageModal = ({ isBookmarked, image, displayImageInfo, onClose }) => {
         </AuthorInfo>
 
         <ImageActions>
-          <SecondaryLink>
+          <BookmarkButton>
             <FontAwesomeIcon
               size="xs"
               icon={isBookmarked ? faBookmarkSolid : faBookmarkRegular}
             />
-          </SecondaryLink>
-          <SecondaryLink>
+          </BookmarkButton>
+          <DownloadButton
+            onClick={() => handleDownload(image.links.download_location)}
+          >
             <FontAwesomeIcon icon={faDownload} />
-          </SecondaryLink>
+          </DownloadButton>
         </ImageActions>
       </Header>
       <ImageWrapper>
