@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   background-color: ${(props) =>
     props.secondary ? "transparent" : ({ theme }) => theme.primary};
   border: 2px solid ${({ theme }) => theme.primary};
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 1em 1.75em;
   margin: 1em 0;
   font-weight: bold;

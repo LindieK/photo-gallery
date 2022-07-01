@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import breakpoint from "../../common/Breakpoints";
 
@@ -29,10 +31,24 @@ const ModalWrapper = styled.div`
   }
 `;
 
+const ExitBlock = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  svg {
+    cursor: pointer;
+  }
+`;
+
 const Modal = ({ isInfo, handleClick, children }) => {
   return (
-    <ModalOverlay isInfo={isInfo} onClick={handleClick}>
-      <ModalWrapper>{children}</ModalWrapper>
+    <ModalOverlay isInfo={isInfo} onClick={isInfo ? handleClick : undefined}>
+      <ModalWrapper>
+        <ExitBlock>
+          <FontAwesomeIcon icon={faTimes} onClick={handleClick} />
+        </ExitBlock>
+        {children}
+      </ModalWrapper>
     </ModalOverlay>
   );
 };
