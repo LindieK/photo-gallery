@@ -21,6 +21,7 @@ export const lightTheme = {
   success30: "rgba(68, 204, 119, 0.30)",
   jeans: "#5576BE",
   jeans30: "rgba(85, 118, 190, 0.30)",
+  popup: "rgba(240, 242, 245, 0.87)",
   modeIcon: faMoon,
 };
 
@@ -45,5 +46,6 @@ export const darkTheme = {
   success30: "rgba(48, 144, 83, 0.30)",
   jeans: "#5576BE",
   jeans30: "rgba(85, 118, 190, 0.30)",
+  popup: "rgba(21, 32, 40, 0.87)",
   modeIcon: faSun,
 };

@@ -65,7 +65,7 @@ const SignUp = () => {
   };
 
   const checkEmail = (value) => {
-    const emailRegEx = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
     if (value === "") {
       setError({

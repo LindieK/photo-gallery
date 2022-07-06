@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -44,12 +45,15 @@ const AuthProvider = ({ children }) => {
         };
         createUser(data).then(() => {
           console.log("User Created");
+          toast.success(`Welcome ${username}!`, {
+            position: "top-center",
+          });
           navigate("/");
         });
       })
       .catch((error) => {
         console.error(error);
-        alert(error.message);
+        toast.error(error.message, { position: "top-center" });
       });
   };
 
@@ -62,6 +66,9 @@ const AuthProvider = ({ children }) => {
           if (token) {
             sessionStorage.setItem("Auth Token", token);
             console.log("User Logged In");
+            toast.success(`Welcome back!`, {
+              position: "top-center",
+            });
             navigate("/");
           }
         });
@@ -69,7 +76,7 @@ const AuthProvider = ({ children }) => {
 
       .catch((error) => {
         console.error(error);
-        alert(error.message);
+        toast.error(error.message, { position: "top-center" });
       });
   };
 
@@ -81,7 +88,16 @@ const AuthProvider = ({ children }) => {
   };
 
   const resetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email);
+    sendPasswordResetEmail(auth, email)
+      .then(() => toast(`A reset email has been sent to ${email}`), {
+        position: "top-center",
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message, {
+          position: "top-center",
+        });
+      });
   };
 
   const updateEmail = (email) => {

@@ -11,7 +11,7 @@ import {
 } from "../common/CommonStyles";
 
 export default function ResetPassword() {
-  const { ResetPassword } = useAuth();
+  const { resetPassword } = useAuth();
   const [email, setEmail] = useState({
     value: "",
     hasError: false,
@@ -19,7 +19,7 @@ export default function ResetPassword() {
   const [error, setError] = useState("");
 
   const checkEmail = (value) => {
-    const emailRegEx = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
     if (value === "") {
       setError("Please enter an email");
@@ -28,7 +28,7 @@ export default function ResetPassword() {
       setError("");
       setEmail({ ...email, hasError: false });
     } else {
-      setError(`Please enter a valid email like "example@domain.org"`);
+      setError(`Please enter a valid email like "example@domain.com"`);
       setEmail({ ...email, hasError: true });
     }
   };
@@ -40,7 +40,7 @@ export default function ResetPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await ResetPassword(email.value);
+    await resetPassword(email.value);
   };
 
   return (
@@ -64,7 +64,7 @@ export default function ResetPassword() {
           error={error}
           hasError={email.hasError}
           handleChange={handleChange}
-          handleBlur={checkEmail}
+          handleBlur={() => checkEmail(email.value)}
         />
         <Button
           text="Send Link"
