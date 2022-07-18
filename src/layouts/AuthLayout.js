@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
 import breakpoint from "../common/Breakpoints";
 import coverImage from "../assets/Sunset_Waterfall_Landscape_Illustration.webp";
