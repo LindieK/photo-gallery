@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
 import DefaultNav from "../components/nav/DefaultNav";
 import HeroNav from "../components/nav/HeroNav";
