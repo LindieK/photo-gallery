@@ -2,25 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 import icon from "../assets/search-results.svg";
+import breakpoint from "../common/Breakpoints";
+import GridLayout from "../layouts/GridLayout";
+import { FetchErrorMessage } from "../common/CommonStyles";
 
-const SearchEmptyState = styled.div`
-  position: relative;
-  top: 14em;
-  width: 75vw;
-  height: 50vh;
-  margin: 0 auto;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const SearchPageLayout = styled.div`
+  background: ${({ theme }) => theme.background};
+  padding: 0.5em;
+
+  @media only screen and ${breakpoint.device.lg} {
+    padding: 1em;
+  }
 `;
 
-const ResultsMsg = styled.div`
-  font-size: 1.25em;
-  text-align: center;
-  color: #c4c4c4;
-`;
+const PageHeader = styled.div``;
+const ResultsContainer = styled.div``;
+
+const PageTitle = styled.h2``;
 
 const ResultsIcon = styled.img.attrs((props) => ({
   src: props.src,
@@ -34,22 +32,15 @@ const SearchResults = (props) => {
   const { query } = props;
 
   return (
-    <SearchEmptyState>
-      <ResultsIcon src={icon} alt="Empty Search State Icon" />
-      {query ? (
-        <ResultsMsg>
-          <p className="error-msg">No results for {query}</p>
-          <p className="error-msg">Try a different search term</p>
-        </ResultsMsg>
-      ) : (
-        <ResultsMsg>
-          <p className="error-msg">
-            Oh my something went wrong. There are no pictures to show you.
-          </p>
-          <p className="error-msg">Try refreshing the page</p>
-        </ResultsMsg>
-      )}
-    </SearchEmptyState>
+    <SearchPageLayout>
+      <PageHeader>
+        <PageTitle>{`${query} Photos`}</PageTitle>
+      </PageHeader>
+      <ResultsContainer>
+        {/* {error && <FetchErrorMessage>{error}</FetchErrorMessage>}
+        {results && <GridLayout></GridLayout>} */}
+      </ResultsContainer>
+    </SearchPageLayout>
   );
 };
 export default SearchResults;
