@@ -58,6 +58,7 @@ const StyledInput = styled.input`
 
 const Input = ({
   name,
+  id,
   label,
   type,
   error,
@@ -68,9 +69,10 @@ const Input = ({
 }) => {
   return (
     <StyledInputContainer>
-      <StyledInputLabel>{label}</StyledInputLabel>
+      <StyledInputLabel htmlFor={id}>{label}</StyledInputLabel>
       <StyledInput
         name={name}
+        id={id}
         type={type}
         placeholder={placeholderText}
         onChange={handleChange}
@@ -84,8 +86,10 @@ const Input = ({
 export default Input;
 Input.propTypes = {
   name: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string.isRequired,
+  hasError: PropTypes.bool.isRequired,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
