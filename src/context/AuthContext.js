@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-//import { toast } from "react-toastify";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -45,15 +44,13 @@ const AuthProvider = ({ children }) => {
         };
         createUser(data).then(() => {
           console.log("User Created");
-          // toast.success(`Welcome ${username}!`, {
-          //   position: "top-center",
-          // });
+          alert(`Welcome ${username}!`);
           navigate("/");
         });
       })
       .catch((error) => {
         console.error(error);
-        //toast.error(error.message, { position: "top-center" });
+        alert(error.message);
       });
   };
 
@@ -66,9 +63,7 @@ const AuthProvider = ({ children }) => {
           if (token) {
             sessionStorage.setItem("Auth Token", token);
             console.log("User Logged In");
-            // toast.success(`Welcome back!`, {
-            //   position: "top-center",
-            // });
+            alert(`Welcome back!`);
             navigate("/");
           }
         });
@@ -76,7 +71,7 @@ const AuthProvider = ({ children }) => {
 
       .catch((error) => {
         console.error(error);
-        //toast.error(error.message, { position: "top-center" });
+        alert(error.message);
       });
   };
 
@@ -90,14 +85,9 @@ const AuthProvider = ({ children }) => {
   const resetPassword = (email) => {
     sendPasswordResetEmail(auth, email)
       .then(() => alert(`A reset email has been sent to ${email}`))
-      // .then(() => toast(`A reset email has been sent to ${email}`), {
-      //   position: "top-center",
-      // })
       .catch((error) => {
         console.error(error);
-        // toast.error(error.message, {
-        //   position: "top-center",
-        // });
+        alert(error.message);
       });
   };
 

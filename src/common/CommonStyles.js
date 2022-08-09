@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import breakpoint from "./Breakpoints";
-//import { ToastContainer } from "react-toastify";
-//import "react-toastify/dist/ReactToastify.min.css";
 
 /**
  * General
@@ -49,31 +47,6 @@ export const FetchErrorMessage = styled.p`
   text-align: center;
   margin: 0.5em auto;
 `;
-
-// export const StyledToastContainer = styled(ToastContainer)`
-//   &&&.Toastify__toast-theme--light {
-//     background-color: ${({ theme }) => theme.popup};
-//     color: ${({ theme }) => theme.text87};
-//   }
-//   &&&.Toastify__toast-container {
-//     background-color: ${({ theme }) => theme.popup};
-//     color: ${({ theme }) => theme.text87};
-//   }
-//   &&&.Toastify__toast {
-//     background-color: ${({ theme }) => theme.popup};
-//     color: ${({ theme }) => theme.text87};
-//   }
-
-//   &&&.Toastify__toast-body {
-//     background-color: ${({ theme }) => theme.popup};
-//     color: ${({ theme }) => theme.text87};
-//   }
-
-//   &&&.Toastify__progress-bar {
-//     background-color: ${({ theme }) => theme.primary};
-//     color: ${({ theme }) => theme.text87};
-//   }
-// `;
 
 /**
  * Auth Pages
