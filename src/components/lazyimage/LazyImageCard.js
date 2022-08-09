@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
-import LazyLoad from "react-lazyload";
 
 import breakpoint from "../../common/Breakpoints";
 
@@ -43,6 +42,7 @@ const StyledImage = styled.img.attrs((props) => ({
   src: props.src.regular,
   srcSet: `${props.src.full} 1280w,${props.src.regular} 767w,${props.src.small} 300w`,
   alt: props.alt,
+  loading: props.loading,
 }))`
   position: absolute;
   top: 0;
@@ -63,16 +63,15 @@ const LazyImageCard = ({ id, image, alt, onImageClick }) => {
   return (
     <ImageWrapper key={id}>
       <Placeholder ref={placeholderRef} />
-      <LazyLoad>
-        <StyledImage
-          key={id}
-          src={image}
-          alt={alt}
-          onLoad={removePlaceholder}
-          onError={removePlaceholder}
-          onClick={onImageClick}
-        />
-      </LazyLoad>
+      <StyledImage
+        key={id}
+        src={image}
+        alt={alt}
+        loading="lazy"
+        onLoad={removePlaceholder}
+        onError={removePlaceholder}
+        onClick={onImageClick}
+      />
     </ImageWrapper>
   );
 };

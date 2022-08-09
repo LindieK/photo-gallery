@@ -40,5 +40,5 @@ const Button = ({ secondary, size, text, disabled, handleClick }) => {
 export default Button;
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func.isRequired,
 };
