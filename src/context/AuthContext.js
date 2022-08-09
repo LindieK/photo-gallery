@@ -44,6 +44,7 @@ const AuthProvider = ({ children }) => {
         };
         createUser(data).then(() => {
           console.log("User Created");
+          alert(`Welcome ${username}!`);
           navigate("/");
         });
       })
@@ -62,6 +63,7 @@ const AuthProvider = ({ children }) => {
           if (token) {
             sessionStorage.setItem("Auth Token", token);
             console.log("User Logged In");
+            alert(`Welcome back!`);
             navigate("/");
           }
         });
@@ -81,7 +83,12 @@ const AuthProvider = ({ children }) => {
   };
 
   const resetPassword = (email) => {
-    return sendPasswordResetEmail(auth, email);
+    sendPasswordResetEmail(auth, email)
+      .then(() => alert(`A reset email has been sent to ${email}`))
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
   };
 
   const updateEmail = (email) => {

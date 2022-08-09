@@ -47,6 +47,7 @@ export const FetchErrorMessage = styled.p`
   text-align: center;
   margin: 0.5em auto;
 `;
+
 /**
  * Auth Pages
  */
