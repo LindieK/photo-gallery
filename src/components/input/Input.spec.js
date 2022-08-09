@@ -21,11 +21,11 @@ describe("Input Component", () => {
       expect(screen.queryByRole("paragraph", { hidden: true })).toBeFalsy();
     });
     test("error message shows if hasError is true", () => {
-      render(<Input hasError={true} error="Something missing" />);
+      render(<Input type="text" hasError={true} error="Something missing" />);
       expect(screen.getByText("Something missing")).toBeInTheDocument();
     });
     test("label does not show if omitted", () => {
-      render(<Input type="text" />);
+      render(<Input type="text" hasError={false} />);
       expect(screen.queryByLabelText("Test Input")).toBeFalsy();
     });
     test("label shows if added", () => {
@@ -33,7 +33,7 @@ describe("Input Component", () => {
       expect(screen.getByLabelText("Test Input")).toBeTruthy();
     });
     test("placeholder text does not show if omitted", () => {
-      render(<Input type="text" />);
+      render(<Input type="text" hasError={false} />);
       expect(screen.queryByPlaceholderText("Enter Here")).toBeFalsy();
     });
     test("placeholder text shows if added", () => {
@@ -50,7 +50,9 @@ describe("Input Component", () => {
       expect(input.value).toBe("Hello World");
     });
     test("not allow letters to be entered in number input field", () => {
-      render(<Input type="number" id="phoneno" label="test" />);
+      render(
+        <Input type="number" id="phoneno" label="test" hasError={false} />
+      );
       const input = screen.getByLabelText("test");
       fireEvent.change(input, { target: { value: "Hello World" } });
       expect(input.value).toBe("");
